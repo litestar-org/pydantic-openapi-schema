@@ -5,17 +5,17 @@ from pydantic_openapi_schema.v3_1_0 import Reference, Schema
 
 
 def test_schema() -> None:
-    schema = Schema.parse_obj(
+    parsed_schema = Schema.parse_obj(
         {
             "title": "reference list",
             "description": "schema for list of reference type",
             "allOf": [{"$ref": "#/definitions/TestType"}],
         }
     )
-    assert schema.allOf
-    assert isinstance(schema.allOf, list)
-    assert isinstance(schema.allOf[0], Reference)
-    assert schema.allOf[0].ref == "#/definitions/TestType"
+    assert parsed_schema.allOf
+    assert isinstance(parsed_schema.allOf, list)
+    assert isinstance(parsed_schema.allOf[0], Reference)
+    assert parsed_schema.allOf[0].ref == "#/definitions/TestType"
 
 
 def test_issue_4() -> None:

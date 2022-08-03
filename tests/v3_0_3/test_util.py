@@ -40,7 +40,7 @@ def test_construct_open_api_with_schema_class_3() -> None:
     assert "pong_foo" in schema_with_alias.properties  # type: ignore
     assert "pong_bar" in schema_with_alias.properties  # type: ignore
 
-    result_with_alias_2 = construct_open_api_with_schema_class(open_api_3, by_alias=True)
+    result_with_alias_2 = construct_open_api_with_schema_class(open_api_3)
     assert result_with_alias_1 == result_with_alias_2
 
     result_without_alias = construct_open_api_with_schema_class(open_api_3, by_alias=False)
