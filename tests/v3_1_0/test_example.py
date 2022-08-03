@@ -40,6 +40,6 @@ def readme_example_3() -> OpenAPI:
     return OpenAPI.parse_obj(
         {
             "info": {"title": "My own API", "version": "v0.0.1"},
-            "paths": {"/ping": PathItem(get={"responses": {"200": Response(description="pong")}})},
+            "paths": {"/ping": PathItem(get={"responses": {"200": Response(description="pong")}})},  # type: ignore
         }
     )

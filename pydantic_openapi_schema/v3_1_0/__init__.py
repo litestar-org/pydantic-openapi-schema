@@ -35,7 +35,6 @@ from .security_scheme import SecurityScheme
 from .server import Server
 from .server_variable import ServerVariable
 from .tag import Tag
-from .util import PydanticSchema, construct_open_api_with_schema_class
 from .xml import XML
 
 # resolve forward references
@@ -73,6 +72,4 @@ __all__ = [
     "ServerVariable",
     "Tag",
     "XML",
-    "PydanticSchema",
-    "construct_open_api_with_schema_class",
 ]

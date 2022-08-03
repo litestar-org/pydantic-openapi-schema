@@ -18,18 +18,16 @@ def test_header_alias() -> None:
 
 def test_media_type_alias() -> None:
     media_type_1 = MediaType(media_type_schema=Schema())
-    media_type_2 = MediaType(schema=Schema())
-    media_type_3 = MediaType.parse_obj({"media_type_schema": Schema()})
-    media_type_4 = MediaType.parse_obj({"schema": Schema()})
-    assert media_type_1 == media_type_2 == media_type_3 == media_type_4
+    media_type_2 = MediaType.parse_obj({"media_type_schema": Schema()})
+    media_type_3 = MediaType.parse_obj({"schema": Schema()})
+    assert media_type_1 == media_type_2 == media_type_3
 
 
 def test_parameter_alias() -> None:
     parameter_1 = Parameter(name="test", param_in="path", param_schema=Schema())
-    parameter_2 = Parameter(name="test", param_in="path", schema=Schema())
-    parameter_3 = Parameter.parse_obj({"name": "test", "param_in": "path", "param_schema": Schema()})
-    parameter_4 = Parameter.parse_obj({"name": "test", "in": "path", "schema": Schema()})
-    assert parameter_1 == parameter_2 == parameter_3 == parameter_4
+    parameter_2 = Parameter.parse_obj({"name": "test", "param_in": "path", "param_schema": Schema()})
+    parameter_3 = Parameter.parse_obj({"name": "test", "in": "path", "schema": Schema()})
+    assert parameter_1 == parameter_2 == parameter_3
 
 
 def test_path_item_alias() -> None:

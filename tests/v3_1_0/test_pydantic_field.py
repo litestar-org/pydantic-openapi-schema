@@ -4,6 +4,10 @@ from pydantic import BaseModel, Field
 from pydantic.schema import schema
 from typing_extensions import Literal
 
+from pydantic_openapi_schema.utils.utils import (
+    OpenAPI310PydanticSchema,
+    construct_open_api_with_schema_class,
+)
 from pydantic_openapi_schema.v3_1_0 import (
     Discriminator,
     Info,
@@ -15,10 +19,6 @@ from pydantic_openapi_schema.v3_1_0 import (
     RequestBody,
     Response,
     Schema,
-)
-from pydantic_openapi_schema.v3_1_0.util import (
-    PydanticSchema,
-    construct_open_api_with_schema_class,
 )
 
 
@@ -63,7 +63,7 @@ def test_pydantic_discriminator_openapi_generation() -> None:
     """https://github.com/kuimono/openapi-schema-pydantic/issues/8"""
 
     open_api = construct_open_api_with_schema_class(construct_base_open_api())
-    json_schema = open_api.components.schemas["RequestModel"]
+    json_schema = open_api.components.schemas["RequestModel"]  # type: ignore
     assert json_schema.properties == {
         "data": Schema(
             anyOf=[
@@ -90,7 +90,9 @@ def construct_base_open_api() -> OpenAPI:
                 post=Operation(
                     requestBody=RequestBody(
                         content={
-                            "application/json": MediaType(media_type_schema=PydanticSchema(schema_class=RequestModel))
+                            "application/json": MediaType(
+                                media_type_schema=OpenAPI310PydanticSchema(schema_class=RequestModel)
+                            )
                         }
                     ),
                     responses={"200": Response(description="pong")},
