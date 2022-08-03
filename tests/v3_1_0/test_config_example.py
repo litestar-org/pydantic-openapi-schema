@@ -1,4 +1,4 @@
-from pydantic_openapi_schema.v3_0_3 import (
+from pydantic_openapi_schema.v3_1_0 import (
     XML,
     Callback,
     Components,

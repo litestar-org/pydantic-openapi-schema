@@ -1,10 +1,10 @@
 from pydantic import BaseModel, Field
 
 from pydantic_openapi_schema.utils.utils import (
-    OpenAPI303PydanticSchema,
+    OpenAPI310PydanticSchema,
     construct_open_api_with_schema_class,
 )
-from pydantic_openapi_schema.v3_0_3 import (
+from pydantic_openapi_schema.v3_1_0 import (
     Info,
     MediaType,
     OpenAPI,
@@ -58,14 +58,14 @@ def construct_base_open_api_1() -> OpenAPI:
                     "post": {
                         "requestBody": {
                             "content": {
-                                "application/json": {"schema": OpenAPI303PydanticSchema(schema_class=PingRequest)}
+                                "application/json": {"schema": OpenAPI310PydanticSchema(schema_class=PingRequest)}
                             }
                         },
                         "responses": {
                             "200": {
                                 "description": "pong",
                                 "content": {
-                                    "application/json": {"schema": OpenAPI303PydanticSchema(schema_class=PingResponse)}
+                                    "application/json": {"schema": OpenAPI310PydanticSchema(schema_class=PingResponse)}
                                 },
                             }
                         },
@@ -78,7 +78,10 @@ def construct_base_open_api_1() -> OpenAPI:
 
 def construct_base_open_api_2() -> OpenAPI:
     return OpenAPI(
-        info=Info(title="My own API", version="v0.0.1"),
+        info=Info(
+            title="My own API",
+            version="v0.0.1",
+        ),
         paths={
             "/ping": PathItem(
                 post=Operation(
@@ -117,7 +120,7 @@ def construct_base_open_api_3() -> OpenAPI:
                     requestBody=RequestBody(
                         content={
                             "application/json": MediaType(
-                                media_type_schema=OpenAPI303PydanticSchema(schema_class=PingRequest)
+                                media_type_schema=OpenAPI310PydanticSchema(schema_class=PingRequest)
                             )
                         }
                     ),
@@ -126,7 +129,7 @@ def construct_base_open_api_3() -> OpenAPI:
                             description="pong",
                             content={
                                 "application/json": MediaType(
-                                    media_type_schema=OpenAPI303PydanticSchema(schema_class=PongResponse)
+                                    media_type_schema=OpenAPI310PydanticSchema(schema_class=PongResponse)
                                 )
                             },
                         )

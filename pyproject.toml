@@ -1,21 +1,87 @@
+[tool.poetry]
+name = "pydantic-openapi-schema"
+version = "1.0.0"
+description = "Starlite-API fork of openapi-schema-pydantic"
+authors = ["Na'aman Hirschfeld <nhirschfeld@gmail.com>"]
+license = "MIT"
+keywords = ["openAPI", "starlite", "pydantic", "schema"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+]
+include = ["CHANGELOG.md"]
+packages = [
+    { include = "pydantic_openapi_schema" },
+]
+[tool.poetry.dependencies]
+python = ">=3.7"
+pydantic = "*"
+email-validator = "^1.2.1"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "*"
+pytest = "*"
+pytest-cov = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.black]
 line-length = 120
-target-version = ['py38']
 include = '\.pyi?$'
-exclude = '''
-(
-  /(
-      \.eggs         # exclude a few common directories in the
-    | \.git          # root of the project
-    | \.hg
-    | \.mypy_cache
-    | \.tox
-    | \.venv
-    | _build
-    | buck-out
-    | build
-    | dist
-    | libs           # we have no obligation to format external libraries
-  )/
-)
-'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.pylint.MESSAGE_CONTROL]
+disable = [
+    "line-too-long",
+    "missing-class-docstring",
+    "missing-module-docstring",
+    "super-init-not-called",
+    "too-few-public-methods",
+    "duplicate-code",
+    "ungrouped-imports",
+]
+enable = "useless-suppression"
+extension-pkg-whitelist = "pydantic"
+
+[tool.pylint.REPORTS]
+reports = "no"
+
+[tool.pylint.FORMAT]
+max-line-length = "120"
+
+[tool.pylint.VARIABLES]
+ignored-argument-names = "args|kwargs|_|__"
+
+[tool.pylint.BASIC]
+good-names = "_,i,e,fn"
+
+[tool.coverage.run]
+omit = ["*/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    'pragma: no cover',
+    'if TYPE_CHECKING:',
+    'except ImportError as e:',
+    '\.\.\.'
+]
+
+[tool.pycln]
+all = true
