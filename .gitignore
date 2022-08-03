@@ -1,6 +1,7 @@
-/*.egg-info
-/.idea
-/.pytest_cache
-/build
-/dist
-__pycache__
+*.egg-info/
+*.iml
+.idea/
+.pytest_cache/
+__pycache__/
+build/
+dist/
