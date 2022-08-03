@@ -4,7 +4,27 @@ version = "1.0.0"
 description = "Starlite-API fork of openapi-schema-pydantic"
 authors = ["Na'aman Hirschfeld <nhirschfeld@gmail.com>"]
 license = "MIT"
-
+keywords = ["openAPI", "starlite", "pydantic", "schema"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+]
+include = ["CHANGELOG.md"]
+packages = [
+    { include = "pydantic_openapi_schema" },
+]
 [tool.poetry.dependencies]
 python = ">=3.7"
 pydantic = "*"

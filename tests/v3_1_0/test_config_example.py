@@ -1,4 +1,4 @@
-from pydantic_openapi_schema.v3_0_3 import (
+from pydantic_openapi_schema.v3_1_0 import (
     XML,
     Callback,
     Components,
@@ -69,7 +69,7 @@ def test_config_example() -> None:
         _assert_config_examples(schema_type)
 
 
-def _assert_config_examples(schema_type) -> None:
+def _assert_config_examples(schema_type):
     if getattr(schema_type, "Config", None) and getattr(schema_type.Config, "schema_extra", None):
         examples = schema_type.Config.schema_extra.get("examples")
         for example_dict in examples:

@@ -1,17 +1,15 @@
 from pydantic import BaseModel, Field
 
-from pydantic_openapi_schema.v3_0_3 import (
+from pydantic_openapi_schema.v3_1_0 import (
     Info,
     MediaType,
     OpenAPI,
     Operation,
     PathItem,
+    PydanticSchema,
     Reference,
     RequestBody,
     Response,
-)
-from pydantic_openapi_schema.v3_0_3.util import (
-    PydanticSchema,
     construct_open_api_with_schema_class,
 )
 
@@ -74,7 +72,10 @@ def construct_base_open_api_1() -> OpenAPI:
 
 def construct_base_open_api_2() -> OpenAPI:
     return OpenAPI(
-        info=Info(title="My own API", version="v0.0.1"),
+        info=Info(
+            title="My own API",
+            version="v0.0.1",
+        ),
         paths={
             "/ping": PathItem(
                 post=Operation(
