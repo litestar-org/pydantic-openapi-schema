@@ -19,3 +19,9 @@ In comparison to the original library this library has:
 6. continuous meintenance
 
 Use is mostly identical to upstream package.
+
+## Installation
+
+```shell
+pip install pydantic-openapi-schema
+```
