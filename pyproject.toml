@@ -1,10 +1,11 @@
 [tool.poetry]
 name = "pydantic-openapi-schema"
 version = "1.0.0"
-description = "Starlite-API fork of openapi-schema-pydantic"
+description = "OpenAPI Schema using pydantic. Forked for Starlite-API from 'openapi-schema-pydantic'."
 authors = ["Na'aman Hirschfeld <nhirschfeld@gmail.com>"]
+maintainers = ["Na'aman Hirschfeld <nhirschfeld@gmail.com>", "Peter Schutt <peter.github@proton.me>", "Cody Fincher <cody.fincher@gmail.com>"]
 license = "MIT"
-keywords = ["openAPI", "starlite", "pydantic", "schema"]
+keywords = ["openAPI", "open-api", "starlite", "pydantic", "schema"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Web Environment",
