@@ -16,7 +16,7 @@ In comparison to the original library this library has:
 3. updated types
 4. updated utilities
 5. updated export paths
-6. continuous meintenance
+6. continuous maintenance
 
 Use is mostly identical to upstream package.
 
