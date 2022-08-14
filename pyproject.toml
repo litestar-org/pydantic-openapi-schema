@@ -71,7 +71,7 @@ max-line-length = "120"
 ignored-argument-names = "args|kwargs|_|__"
 
 [tool.pylint.BASIC]
-good-names = "_,i,e,fn"
+good-names = "_,i,e,fn,v"
 
 [tool.coverage.run]
 omit = ["*/tests/*"]
