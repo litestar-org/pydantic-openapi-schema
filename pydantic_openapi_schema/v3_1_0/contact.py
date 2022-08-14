@@ -24,9 +24,11 @@ class Contact(BaseModel):
     The email address of the contact person/organization.
     MUST be in the form of an email address.
     """
+
     @validator("email", pre=True)
     def validate_email(  # pylint: disable=no-self-argument
-        cls, v: Union[EmailStr, str],
+        cls,
+        v: Union[EmailStr, str],
     ) -> EmailStr:
         """Validates that email is a valid email address
 
