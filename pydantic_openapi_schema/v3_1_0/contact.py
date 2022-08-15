@@ -19,7 +19,7 @@ class Contact(BaseModel):
     MUST be in the form of a URL.
     """
 
-    email: Optional[EmailStr] = None
+    email: Optional[Union[EmailStr, str]] = None
     """
     The email address of the contact person/organization.
     MUST be in the form of an email address.
