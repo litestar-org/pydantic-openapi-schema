@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pydantic-openapi-schema"
-version = "1.0.1"
+version = "1.0.2"
 description = "OpenAPI Schema using pydantic. Forked for Starlite-API from 'openapi-schema-pydantic'."
 authors = ["Na'aman Hirschfeld <nhirschfeld@gmail.com>"]
 maintainers = ["Na'aman Hirschfeld <nhirschfeld@gmail.com>", "Peter Schutt <peter.github@proton.me>", "Cody Fincher <cody.fincher@gmail.com>"]
@@ -29,7 +29,7 @@ packages = [
 [tool.poetry.dependencies]
 python = ">=3.7"
 pydantic = "*"
-email-validator = "^1.2.1"
+email-validator = "*"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "*"
