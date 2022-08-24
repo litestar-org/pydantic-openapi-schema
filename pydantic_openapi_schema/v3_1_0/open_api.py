@@ -18,10 +18,10 @@ class OpenAPI(BaseModel):
 
     openapi: str = "3.1.0"
     """
-    **REQUIRED**. This string MUST be the `version number <https://spec.openapis.org/oas/v3.1.0#versions>`__
+    **REQUIRED**. This string MUST be the [version number](https://spec.openapis.org/oas/v3.1.0#versions)
     of the OpenAPI Specification that the OpenAPI document uses.
     The `openapi` field SHOULD be used by tooling to interpret the OpenAPI document.
-    This is *not* related to the API `info.version <https://spec.openapis.org/oas/v3.1.0#infoVersion>`__ string.
+    This is *not* related to the API [info.version](https://spec.openapis.org/oas/v3.1.0#infoVersion) string.
     """
 
     info: Info
@@ -31,7 +31,7 @@ class OpenAPI(BaseModel):
 
     jsonSchemaDialect: Optional[str] = None
     """
-    The default value for the `$schema` keyword within `Schema Objects <https://spec.openapis.org/oas/v3.1.0#schemaObject>`__
+    The default value for the `$schema` keyword within [Schema Objects](https://spec.openapis.org/oas/v3.1.0#schemaObject)
     contained within this OAS document. This MUST be in the form of a URI.
     """
 
@@ -39,7 +39,8 @@ class OpenAPI(BaseModel):
     """
     An array of Server Objects, which provide connectivity information to a target server.
     If the `servers` property is not provided, or is an empty array,
-    the default value would be a `Server Object <https://spec.openapis.org/oas/v3.1.0#serverObject>`__ with a `url <https://spec.openapis.org/oas/v3.1.0#serverUrl>`__ value of `/`.
+    the default value would be a [Server Object](https://spec.openapis.org/oas/v3.1.0#serverObject) 
+    with a [url](https://spec.openapis.org/oas/v3.1.0#serverUrl) value of `/`.
     """
 
     paths: Optional[Paths] = None
@@ -55,7 +56,7 @@ class OpenAPI(BaseModel):
     The key name is a unique string to refer to each webhook,
     while the (optionally referenced) Path Item Object describes a request
     that may be initiated by the API provider and the expected responses.
-    An `example <https://github.com/OAI/OpenAPI-Specification/blob/main/examples/v3.1/webhook-example.yaml>`__ is available.
+    An [example](https://github.com/OAI/OpenAPI-Specification/blob/main/examples/v3.1/webhook-example.yaml) is available.
     """
 
     components: Optional[Components] = None
@@ -76,7 +77,7 @@ class OpenAPI(BaseModel):
     """
     A list of tags used by the document with additional metadata.
     The order of the tags can be used to reflect on their order by the parsing tools.
-    Not all tags that are used by the `Operation Object <https://spec.openapis.org/oas/v3.1.0#operationObject>`__ must be declared.
+    Not all tags that are used by the [Operation Object](https://spec.openapis.org/oas/v3.1.0#operationObject) must be declared.
     The tags that are not declared MAY be organized randomly or based on the tools' logic.
     Each tag name in the list MUST be unique.
     """

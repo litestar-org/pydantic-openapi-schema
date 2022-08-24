@@ -16,15 +16,15 @@ class ServerVariable(BaseModel):
     """
     **REQUIRED**. The default value to use for substitution,
     which SHALL be sent if an alternate value is _not_ supplied.
-    Note this behavior is different than the `Schema Object's <https://spec.openapis.org/oas/v3.1.0#schemaObject>`__ treatment of default values,
+    Note this behavior is different than the [Schema Object's](https://spec.openapis.org/oas/v3.1.0#schemaObject) treatment of default values,
     because in those cases parameter values are optional.
-    If the `enum <https://spec.openapis.org/oas/v3.1.0#serverVariableEnum>`__ is defined, the value MUST exist in the enum's values.
+    If the [enum](https://spec.openapis.org/oas/v3.1.0#serverVariableEnum) is defined, the value MUST exist in the enum's values.
     """
 
     description: Optional[str] = None
     """
     An optional description for the server variable.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     class Config:

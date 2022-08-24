@@ -6,12 +6,12 @@ from .parameter import Parameter
 
 class Header(Parameter):
     """
-    The Header Object follows the structure of the `Parameter Object <https://spec.openapis.org/oas/v3.1.0#parameterObject>`__ with the following changes:
+    The Header Object follows the structure of the [Parameter Object](https://spec.openapis.org/oas/v3.1.0#parameterObject) with the following changes:
 
     1. `name` MUST NOT be specified, it is given in the corresponding `headers` map.
     2. `in` MUST NOT be specified, it is implicitly in `header`.
     3. All traits that are affected by the location MUST be applicable to a location of `header`
-       (for example, `style <https://spec.openapis.org/oas/v3.1.0#parameterStyle>`__).
+       (for example, [style](https://spec.openapis.org/oas/v3.1.0#parameterStyle)).
     """
 
     name: Literal[""] = Field(default="", const=True)

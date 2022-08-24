@@ -28,6 +28,6 @@ Use this field to cover undeclared responses.
 Patterned Fields
 {httpStatusCode]: Optional[Union[Response, Reference]]
 
-Any `HTTP status code <https://spec.openapis.org/oas/v3.0.3#httpCodes>`__ can be used as the property name,
+Any [HTTP status code](https://spec.openapis.org/oas/v3.0.3#httpCodes) can be used as the property name,
 but only one property per code, to describe the expected response for that HTTP status code.
 """

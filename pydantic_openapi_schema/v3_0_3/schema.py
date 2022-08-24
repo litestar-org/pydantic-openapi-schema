@@ -12,11 +12,11 @@ class Schema(BaseModel):
     """
     The Schema Object allows the definition of input and output data types.
     These types can be objects, but also primitives and arrays.
-    This object is an extended subset of the `JSON Schema Specification Wright Draft 00 <https://json-schema.org/>`__.
+    This object is an extended subset of the [JSON Schema Specification Wright Draft 00](https://json-schema.org/).
 
     For more information about the properties,
-    see `JSON Schema Core <https://tools.ietf.org/html/draft-wright-json-schema-00>`__
-    and `JSON Schema Validation <https://tools.ietf.org/html/draft-wright-json-schema-validation-00>`__.
+    see [JSON Schema Core](https://tools.ietf.org/html/draft-wright-json-schema-00)
+    and [JSON Schema Validation](https://tools.ietf.org/html/draft-wright-json-schema-validation-00).
     Unless stated otherwise, the property definitions follow the JSON Schema.
 
     The following properties are taken directly from the JSON Schema definition and follow the same specifications:
@@ -223,7 +223,7 @@ class Schema(BaseModel):
     allOf: Optional[List[Union[Reference, "Schema"]]] = None
     """
     **From OpenAPI spec:
-    Inline or referenced schema MUST be of a `Schema Object <https://spec.openapis.org/oas/v3.0.3#schemaObject>`__ and not a standard JSON Schema.**
+    Inline or referenced schema MUST be of a [Schema Object](https://spec.openapis.org/oas/v3.0.3#schemaObject) and not a standard JSON Schema.**
 
     From JSON Schema:
     This keyword's value MUST be an array.  This array MUST have at least
@@ -240,7 +240,7 @@ class Schema(BaseModel):
     oneOf: Optional[List[Union[Reference, "Schema"]]] = None
     """
     **From OpenAPI spec:
-    Inline or referenced schema MUST be of a `Schema Object <https://spec.openapis.org/oas/v3.0.3#schemaObject>`__ and not a standard JSON Schema.**
+    Inline or referenced schema MUST be of a [Schema Object](https://spec.openapis.org/oas/v3.0.3#schemaObject) and not a standard JSON Schema.**
 
     From JSON Schema:
     This keyword's value MUST be an array.  This array MUST have at least
@@ -257,7 +257,7 @@ class Schema(BaseModel):
     anyOf: Optional[List[Union[Reference, "Schema"]]] = None
     """
     **From OpenAPI spec:
-    Inline or referenced schema MUST be of a `Schema Object <https://spec.openapis.org/oas/v3.0.3#schemaObject>`__ and not a standard JSON Schema.**
+    Inline or referenced schema MUST be of a [Schema Object](https://spec.openapis.org/oas/v3.0.3#schemaObject) and not a standard JSON Schema.**
 
     From JSON Schema:
     This keyword's value MUST be an array.  This array MUST have at least
@@ -274,7 +274,7 @@ class Schema(BaseModel):
     schema_not: Optional[Union[Reference, "Schema"]] = Field(default=None, alias="not")
     """
     **From OpenAPI spec:
-    Inline or referenced schema MUST be of a `Schema Object <https://spec.openapis.org/oas/v3.0.3#schemaObject>`__ and not a standard JSON Schema.**
+    Inline or referenced schema MUST be of a [Schema Object](https://spec.openapis.org/oas/v3.0.3#schemaObject) and not a standard JSON Schema.**
 
     From JSON Schema:
     This keyword's value MUST be an object.  This object MUST be a valid
@@ -288,7 +288,7 @@ class Schema(BaseModel):
     """
     **From OpenAPI spec:
     Value MUST be an object and not an array.
-    Inline or referenced schema MUST be of a `Schema Object <https://spec.openapis.org/oas/v3.0.3#schemaObject>`__ and not a standard JSON Schema.
+    Inline or referenced schema MUST be of a [Schema Object](https://spec.openapis.org/oas/v3.0.3#schemaObject) and not a standard JSON Schema.
     `items` MUST be present if the `type` is `array`.**
 
     From JSON Schema:
@@ -310,7 +310,7 @@ class Schema(BaseModel):
     properties: Optional[Dict[str, Union[Reference, "Schema"]]] = None
     """
     **From OpenAPI spec:
-    Property definitions MUST be a `Schema Object <https://spec.openapis.org/oas/v3.0.3#schemaObject>`__
+    Property definitions MUST be a [Schema Object](https://spec.openapis.org/oas/v3.0.3#schemaObject)
     and not a standard JSON Schema (inline or referenced).**
 
     From JSON Schema:
@@ -325,7 +325,7 @@ class Schema(BaseModel):
     """
     **From OpenAPI spec:
     Value can be boolean or object.
-    Inline or referenced schema MUST be of a `Schema Object <https://spec.openapis.org/oas/v3.0.3#schemaObject>`__ and not a standard JSON Schema.
+    Inline or referenced schema MUST be of a [Schema Object](https://spec.openapis.org/oas/v3.0.3#schemaObject) and not a standard JSON Schema.
     Consistent with JSON Schema, `additionalProperties` defaults to `true`.**
 
     From JSON Schema:
@@ -348,7 +348,7 @@ class Schema(BaseModel):
     description: Optional[str] = None
     """
     **From OpenAPI spec:
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.**
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.**
 
     From JSON Schema:
     The value "description" MUST be a string.
@@ -362,7 +362,7 @@ class Schema(BaseModel):
     schema_format: Optional[str] = Field(default=None, alias="format")
     """
     **From OpenAPI spec:
-    `Data Type Formats <https://spec.openapis.org/oas/v3.0.3#dataTypeFormat>`__ for further details.
+    [Data Type Formats](https://spec.openapis.org/oas/v3.0.3#dataTypeFormat) for further details.
     While relying on JSON Schema's defined formats, the OAS offers a few additional predefined formats.**
 
     From JSON Schema:
@@ -415,7 +415,7 @@ class Schema(BaseModel):
     Adds support for polymorphism.
     The discriminator is an object name that is used to differentiate between other schemas
     which may satisfy the payload description.
-    See `Composition and Inheritance <https://spec.openapis.org/oas/v3.0.3#schemaComposition>`__ for more details.
+    See [Composition and Inheritance](https://spec.openapis.org/oas/v3.0.3#schemaComposition) for more details.
     """
 
     readOnly: Optional[bool] = None

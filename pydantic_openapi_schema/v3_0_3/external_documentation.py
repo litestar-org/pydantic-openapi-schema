@@ -9,7 +9,7 @@ class ExternalDocumentation(BaseModel):
     description: Optional[str] = None
     """
     A short description of the target documentation.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     url: AnyUrl

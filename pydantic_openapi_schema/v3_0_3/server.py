@@ -20,7 +20,7 @@ class Server(BaseModel):
     description: Optional[str] = None
     """
     An optional string describing the host designated by the URL.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     variables: Optional[Dict[str, ServerVariable]] = None

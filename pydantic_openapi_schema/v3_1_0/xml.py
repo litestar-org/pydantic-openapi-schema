@@ -29,7 +29,7 @@ class XML(BaseModel):
 
     prefix: Optional[str] = None
     """
-    The prefix to be used for the `name <https://spec.openapis.org/oas/v3.1.0#xmlName>`__.
+    The prefix to be used for the [name](https://spec.openapis.org/oas/v3.1.0#xmlName).
     """
 
     attribute: bool = False

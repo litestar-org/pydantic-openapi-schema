@@ -13,11 +13,11 @@ class Schema(BaseModel):
     The Schema Object allows the definition of input and output data types.
     These types can be objects, but also primitives and arrays.
     This object is a superset of
-    the `JSON Schema Specification Draft 2020-12 <https://tools.ietf.org/html/draft-bhutton-json-schema-00>`__.
+    the [JSON Schema Specification Draft 2020-12](https://tools.ietf.org/html/draft-bhutton-json-schema-00).
 
     For more information about the properties,
-    see `JSON Schema Core <https://tools.ietf.org/html/draft-wright-json-schema-00>`__
-    and `JSON Schema Validation <https://tools.ietf.org/html/draft-wright-json-schema-validation-00>`__.
+    see [JSON Schema Core](https://tools.ietf.org/html/draft-wright-json-schema-00)
+    and [JSON Schema Validation](https://tools.ietf.org/html/draft-wright-json-schema-validation-00).
 
     Unless stated otherwise, the property definitions follow those of JSON Schema
     and do not add any additional semantics.
@@ -25,7 +25,7 @@ class Schema(BaseModel):
     OAS also defers the definition of semantics to the application consuming the OpenAPI document.
 
     The following properties are taken directly from the
-    `JSON Schema Core <https://tools.ietf.org/html/draft-wright-json-schema-00>`__
+    [JSON Schema Core](https://tools.ietf.org/html/draft-wright-json-schema-00)
     and follow the same specifications:
     """
 
@@ -351,7 +351,7 @@ class Schema(BaseModel):
     schema.
 
     The following properties are taken directly from the
-    `JSON Schema Validation <https://tools.ietf.org/html/draft-wright-json-schema-validation-00>`__
+    [JSON Schema Validation](https://tools.ietf.org/html/draft-wright-json-schema-validation-00)
     and follow the same specifications:
     """
 
@@ -671,7 +671,7 @@ class Schema(BaseModel):
     description: Optional[str] = None
     """
     From OpenAPI:
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
 
     From JSON Schema:
     The value "description" MUST be a string.
@@ -800,7 +800,7 @@ class Schema(BaseModel):
     Adds support for polymorphism.
     The discriminator is an object name that is used to differentiate between other schemas
     which may satisfy the payload description.
-    See `Composition and Inheritance <https://spec.openapis.org/oas/v3.1.0#schemaComposition>`__ for more details.
+    See [Composition and Inheritance](https://spec.openapis.org/oas/v3.1.0#schemaComposition) for more details.
     """
 
     xml: Optional[XML] = None

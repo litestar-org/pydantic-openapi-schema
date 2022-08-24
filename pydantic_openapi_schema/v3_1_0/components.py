@@ -23,34 +23,34 @@ class Components(BaseModel):
     """
 
     schemas: Optional[Dict[str, Schema]] = None
-    """An object to hold reusable `Schema Objects <https://spec.openapis.org/oas/v3.1.0#schemaObject>`__."""
+    """An object to hold reusable [Schema Objects](https://spec.openapis.org/oas/v3.1.0#schemaObject)."""
 
     responses: Optional[Dict[str, Union[Response, Reference]]] = None
-    """An object to hold reusable `Response Objects <https://spec.openapis.org/oas/v3.1.0#responseObject>`__."""
+    """An object to hold reusable [Response Objects](https://spec.openapis.org/oas/v3.1.0#responseObject)."""
 
     parameters: Optional[Dict[str, Union[Parameter, Reference]]] = None
-    """An object to hold reusable `Parameter Objects <https://spec.openapis.org/oas/v3.1.0#parameterObject>`__."""
+    """An object to hold reusable [Parameter Objects](https://spec.openapis.org/oas/v3.1.0#parameterObject)."""
 
     examples: Optional[Dict[str, Union[Example, Reference]]] = None
-    """An object to hold reusable `Example Objects <https://spec.openapis.org/oas/v3.1.0#exampleObject>`__."""
+    """An object to hold reusable [Example Objects](https://spec.openapis.org/oas/v3.1.0#exampleObject)."""
 
     requestBodies: Optional[Dict[str, Union[RequestBody, Reference]]] = None
-    """An object to hold reusable `Request Body Objects <https://spec.openapis.org/oas/v3.1.0#requestBodyObject>`__."""
+    """An object to hold reusable [Request Body Objects](https://spec.openapis.org/oas/v3.1.0#requestBodyObject)."""
 
     headers: Optional[Dict[str, Union[Header, Reference]]] = None
-    """An object to hold reusable `Header Objects <https://spec.openapis.org/oas/v3.1.0#headerObject>`__."""
+    """An object to hold reusable [Header Objects](https://spec.openapis.org/oas/v3.1.0#headerObject)."""
 
     securitySchemes: Optional[Dict[str, Union[SecurityScheme, Reference]]] = None
-    """An object to hold reusable `Security Scheme Objects <https://spec.openapis.org/oas/v3.1.0#securitySchemeObject>`__."""
+    """An object to hold reusable [Security Scheme Objects](https://spec.openapis.org/oas/v3.1.0#securitySchemeObject)."""
 
     links: Optional[Dict[str, Union[Link, Reference]]] = None
-    """An object to hold reusable `Link Objects <https://spec.openapis.org/oas/v3.1.0#linkObject>`__."""
+    """An object to hold reusable [Link Objects](https://spec.openapis.org/oas/v3.1.0#linkObject)."""
 
     callbacks: Optional[Dict[str, Union[Callback, Reference]]] = None
-    """An object to hold reusable `Callback Objects <https://spec.openapis.org/oas/v3.1.0#callbackObject>`__."""
+    """An object to hold reusable [Callback Objects](https://spec.openapis.org/oas/v3.1.0#callbackObject)."""
 
     pathItems: Optional[Dict[str, Union[PathItem, Reference]]] = None
-    """An object to hold reusable `Path Item Object <https://spec.openapis.org/oas/v3.1.0#pathItemObject>`__."""
+    """An object to hold reusable [Path Item Object](https://spec.openapis.org/oas/v3.1.0#pathItemObject)."""
 
     class Config:
         extra = Extra.ignore

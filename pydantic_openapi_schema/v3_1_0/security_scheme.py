@@ -30,7 +30,7 @@ class SecurityScheme(BaseModel):
     description: Optional[str] = None
     """
     A description for security scheme.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     name: Optional[str] = None

@@ -15,7 +15,7 @@ class Link(BaseModel):
     the OAS linking mechanism does not require link information in the runtime response.
 
     For computing links, and providing instructions to execute them,
-    a `runtime expression <https://spec.openapis.org/oas/v3.1.0#runtimeExpression>`__ is used for accessing values in an operation
+    a [runtime expression](https://spec.openapis.org/oas/v3.1.0#runtimeExpression) is used for accessing values in an operation
     and using them as parameters while invoking the linked operation.
     """
 
@@ -23,9 +23,9 @@ class Link(BaseModel):
     """
     A relative or absolute URI reference to an OAS operation.
     This field is mutually exclusive of the `operationId` field,
-    and MUST point to an `Operation Object <https://spec.openapis.org/oas/v3.1.0#operationObject>`__.
-    Relative `operationRef` values MAY be used to locate an existing `Operation Object <https://spec.openapis.org/oas/v3.1.0#operationObject>`__
-    in the OpenAPI definition. See the rules for resolving `Relative References <https://spec.openapis.org/oas/v3.1.0#relativeReferencesURI>`__.
+    and MUST point to an [Operation Object](https://spec.openapis.org/oas/v3.1.0#operationObject).
+    Relative `operationRef` values MAY be used to locate an existing [Operation Object](https://spec.openapis.org/oas/v3.1.0#operationObject)
+    in the OpenAPI definition. See the rules for resolving [Relative References](https://spec.openapis.org/oas/v3.1.0#relativeReferencesURI).
     """
 
     operationId: Optional[str] = None
@@ -42,19 +42,19 @@ class Link(BaseModel):
     The key is the parameter name to be used,
     whereas the value can be a constant or an expression to be evaluated and passed to the linked operation.
 
-    The parameter name can be qualified using the `parameter location <https://spec.openapis.org/oas/v3.1.0#parameterIn>`__ `[{in}.]{name}`
+    The parameter name can be qualified using the [parameter location](https://spec.openapis.org/oas/v3.1.0#parameterIn) `[{in}.]{name}`
     for operations that use the same parameter name in different locations (e.g. path.id).
     """
 
     requestBody: Optional[Any] = None
     """
-    A literal value or `{expression} <https://spec.openapis.org/oas/v3.1.0#runtimeExpression>`__ to use as a request body when calling the target operation.
+    A literal value or [{expression}](https://spec.openapis.org/oas/v3.1.0#runtimeExpression) to use as a request body when calling the target operation.
     """
 
     description: Optional[str] = None
     """
     A description of the link.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     server: Optional[Server] = None

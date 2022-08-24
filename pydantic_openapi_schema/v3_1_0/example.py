@@ -13,7 +13,7 @@ class Example(BaseModel):
     description: Optional[str] = None
     """
     Long description for the example.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     value: Optional[Any] = None
@@ -30,7 +30,7 @@ class Example(BaseModel):
     This provides the capability to reference examples that cannot easily be included in JSON or YAML documents.
 
     The `value` field and `externalValue` field are mutually exclusive.
-    See the rules for resolving `Relative References <https://spec.openapis.org/oas/v3.1.0#relativeReferencesURI>`__.
+    See the rules for resolving [Relative References](https://spec.openapis.org/oas/v3.1.0#relativeReferencesURI).
     """
 
     class Config:

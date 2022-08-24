@@ -36,13 +36,16 @@ def construct_open_api_with_schema_class(
     """
     Construct a new OpenAPI object, with the use of pydantic classes to produce JSON schemas
 
-    :param open_api_schema: the base `OpenAPI` object
-    :param schema_classes: pydanitic classes that their schema will be used "#/components/schemas" values
-    :param scan_for_pydantic_schema_reference: flag to indicate if scanning for `PydanticSchemaReference` class
-                                               is needed for "#/components/schemas" value updates
-    :param by_alias: construct schema by alias (default is True)
-    :return: new OpenAPI object with "#/components/schemas" values updated.
-             If there is no update in "#/components/schemas" values, the original `open_api` will be returned.
+    Args:
+        open_api_schema: the base `OpenAPI` object
+        schema_classes: pydanitic classes that their schema will be used "#/components/schemas" values
+        scan_for_pydantic_schema_reference: flag to indicate if scanning for `PydanticSchemaReference`
+            class is needed for "#/components/schemas" value updates
+        by_alias: construct schema by alias (default is True)
+
+    Returns:
+        new OpenAPI object with "#/components/schemas" values updated. If there is no update in
+            "#/components/schemas" values, the original `open_api` will be returned.
     """
     specs = v3_1_0 if isinstance(open_api_schema, v3_1_0.OpenAPI) else v3_0_3
 
@@ -75,13 +78,15 @@ def construct_open_api_with_schema_class(
 def extract_pydantic_types_to_openapi_components(
     obj: Any, ref_class: Union[Type[v3_0_3.Reference], Type[v3_1_0.Reference]]
 ) -> Set[Type[BaseModel]]:
-    """
-    Recursively traverses the OpenAPI document, replacing any found Pydantic Models with $references to the schema's
-    components section and returning the pydantic models themselves.
+    """Recursively traverses the OpenAPI document, replacing any found Pydantic Models with $references
+    to the schema's components section and returning the pydantic models themselves.
 
-    :param obj:
-    :param ref_class:
-    :return set of pydantic schema classes:
+    Args:
+        obj:
+        ref_class:
+
+    Returns:
+        set of pydantic schema classes
     """
     pydantic_schemas: Set[Type[BaseModel]] = set()
     if isinstance(obj, BaseModel):

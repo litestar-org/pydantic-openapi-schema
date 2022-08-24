@@ -11,8 +11,8 @@ class SecurityScheme(BaseModel):
     Supported schemes are HTTP authentication,
     an API key (either as a header, a cookie parameter or as a query parameter),
     OAuth2's common flows (implicit, password, client credentials and authorization code)
-    as defined in `RFC6749 <https://tools.ietf.org/html/rfc6749>`__,
-    and `OpenID Connect Discovery <https://tools.ietf.org/html/draft-ietf-oauth-discovery-06>`__.
+    as defined in [RFC6749](https://tools.ietf.org/html/rfc6749),
+    and [OpenID Connect Discovery](https://tools.ietf.org/html/draft-ietf-oauth-discovery-06).
     """
 
     type: str
@@ -24,7 +24,7 @@ class SecurityScheme(BaseModel):
     description: Optional[str] = None
     """
     A short description for security scheme.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     name: Optional[str] = None
@@ -40,10 +40,10 @@ class SecurityScheme(BaseModel):
     scheme: Optional[str] = None
     """
     **REQUIRED** for `http`. The name of the HTTP Authorization scheme to be used in the
-    `Authorization header as defined in RFC7235 <https://tools.ietf.org/html/rfc7235#section-5.1>`__.
+    [Authorization header as defined in RFC7235](https://tools.ietf.org/html/rfc7235#section-5.1).
 
     The values used SHOULD be registered in the
-    `IANA Authentication Scheme registry <https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml>`__.
+    [IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
     """
 
     bearerFormat: Optional[str] = None

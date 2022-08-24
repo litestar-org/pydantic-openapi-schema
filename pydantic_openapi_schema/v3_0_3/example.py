@@ -13,7 +13,7 @@ class Example(BaseModel):
     description: Optional[str] = None
     """
     Long description for the example.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     value: Optional[Any] = None

@@ -33,13 +33,13 @@ class Contact(BaseModel):
         """Validates that email is a valid email address
 
         Args:
-            v (EmailStr|str): Holds the email string to be validated
+            v: Holds the email string to be validated
 
         Raises:
             ValueError: Value is not a valid email address
 
         Returns:
-            _type_: CompressionBackend
+            Validated email string.
         """
         if isinstance(v, str):
             v = EmailStr(v)

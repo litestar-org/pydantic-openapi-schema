@@ -12,7 +12,7 @@ class Parameter(BaseModel):
     """
     Describes a single operation parameter.
 
-    A unique parameter is defined by a combination of a `name <https://spec.openapis.org/oas/v3.0.3#parameterName>`__ and `location <https://spec.openapis.org/oas/v3.0.3#parameterIn>`__.
+    A unique parameter is defined by a combination of a [name](https://spec.openapis.org/oas/v3.0.3#parameterName) and [location](https://spec.openapis.org/oas/v3.0.3#parameterIn).
     """
 
     name: str
@@ -20,12 +20,12 @@ class Parameter(BaseModel):
     **REQUIRED**. The name of the parameter.
     Parameter names are *case sensitive*.
 
-    - If `in <https://spec.openapis.org/oas/v3.0.3#parameterIn>`__ is `"path"`, the `name` field MUST correspond to a template expression occurring
-      within the `path <https://spec.openapis.org/oas/v3.0.3#pathsPath>`__ field in the `Paths Object <https://spec.openapis.org/oas/v3.0.3#pathsObject>`__.
-      See `Path Templating <https://spec.openapis.org/oas/v3.0.3#pathTemplating>`__ for further information.
-    - If `in <https://spec.openapis.org/oas/v3.0.3#parameterIn>`__ is `"header"` and the `name` field is `"Accept"`, `"Content-Type"` or `"Authorization"`,
+    - If [in](https://spec.openapis.org/oas/v3.0.3#parameterIn) is `"path"`, the `name` field MUST correspond to a template expression occurring
+      within the [path](https://spec.openapis.org/oas/v3.0.3#pathsPath) field in the [Paths Object](https://spec.openapis.org/oas/v3.0.3#pathsObject).
+      See [Path Templating](https://spec.openapis.org/oas/v3.0.3#pathTemplating) for further information.
+    - If [in](https://spec.openapis.org/oas/v3.0.3#parameterIn) is `"header"` and the `name` field is `"Accept"`, `"Content-Type"` or `"Authorization"`,
       the parameter definition SHALL be ignored.
-    - For all other cases, the `name` corresponds to the parameter name used by the `in <https://spec.openapis.org/oas/v3.0.3#parameterIn>`__ property.
+    - For all other cases, the `name` corresponds to the parameter name used by the [in](https://spec.openapis.org/oas/v3.0.3#parameterIn) property.
     """
 
     param_in: str = Field(alias="in")
@@ -37,13 +37,13 @@ class Parameter(BaseModel):
     """
     A brief description of the parameter.
     This could contain examples of use.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     required: bool = False
     """
     Determines whether this parameter is mandatory.
-    If the `parameter location <https://spec.openapis.org/oas/v3.0.3#parameterIn>`__ is `"path"`, this property is **REQUIRED** and its value MUST be `true`.
+    If the [parameter location](https://spec.openapis.org/oas/v3.0.3#parameterIn) is `"path"`, this property is **REQUIRED** and its value MUST be `true`.
     Otherwise, the property MAY be included and its default value is `false`.
     """
 
@@ -58,12 +58,12 @@ class Parameter(BaseModel):
     Sets the ability to pass empty-valued parameters.
     This is valid only for `query` parameters and allows sending a parameter with an empty value.
     Default value is `false`.
-    If `style <https://spec.openapis.org/oas/v3.0.3#parameterStyle>`__ is used, and if behavior is `n/a` (cannot be serialized),
+    If [style](https://spec.openapis.org/oas/v3.0.3#parameterStyle) is used, and if behavior is `n/a` (cannot be serialized),
     the value of `allowEmptyValue` SHALL be ignored.
     Use of this property is NOT RECOMMENDED, as it is likely to be removed in a later revision.
 
     The rules for serialization of the parameter are specified in one of two ways.
-    For simpler scenarios, a `schema <https://spec.openapis.org/oas/v3.0.3#parameterSchema>`__ and `style <https://spec.openapis.org/oas/v3.0.3#parameterStyle>`__
+    For simpler scenarios, a [schema](https://spec.openapis.org/oas/v3.0.3#parameterSchema) and [style](https://spec.openapis.org/oas/v3.0.3#parameterStyle)
     can describe the structure and syntax of the parameter.
     """
 
@@ -83,14 +83,14 @@ class Parameter(BaseModel):
     When this is true, parameter values of type `array` or `object` generate separate parameters
     for each value of the array or key-value pair of the map.
     For other types of parameters this property has no effect.
-    When `style <https://spec.openapis.org/oas/v3.0.3#parameterStyle>`__ is `form`, the default value is `true`.
+    When [style](https://spec.openapis.org/oas/v3.0.3#parameterStyle) is `form`, the default value is `true`.
     For all other styles, the default value is `false`.
     """
 
     allowReserved: bool = False
     """
     Determines whether the parameter value SHOULD allow reserved characters,
-    as defined by ´RFC3986 <https://tools.ietf.org/html/rfc3986#section-2.2>`__
+    as defined by [RFC3986](https://tools.ietf.org/html/rfc3986#section-2.2)
     `:/?#[]@!$&'()*+,;=` to be included without percent-encoding.
     This property only applies to parameters with an `in` value of `query`.
     The default value is `false`.
@@ -120,7 +120,7 @@ class Parameter(BaseModel):
     Furthermore, if referencing a `schema` that contains an example,
     the `examples` value SHALL _override_ the example provided by the schema.
 
-    For more complex scenarios, the `content <https://spec.openapis.org/oas/v3.0.3#parameterContent>`__ property
+    For more complex scenarios, the [content](https://spec.openapis.org/oas/v3.0.3#parameterContent) property
     can define the media type and schema of the parameter.
     A parameter MUST contain either a `schema` property, or a `content` property, but not both.
     When `example` or `examples` are provided in conjunction with the `schema` object,
