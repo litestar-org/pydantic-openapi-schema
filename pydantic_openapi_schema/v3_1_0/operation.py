@@ -29,7 +29,7 @@ class Operation(BaseModel):
     description: Optional[str] = None
     """
     A verbose explanation of the operation behavior.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     externalDocs: Optional[ExternalDocumentation] = None
@@ -49,12 +49,12 @@ class Operation(BaseModel):
     parameters: Optional[List[Union[Parameter, Reference]]] = None
     """
     A list of parameters that are applicable for this operation.
-    If a parameter is already defined at the `Path Item <https://spec.openapis.org/oas/v3.1.0#pathItemParameters>`__,
+    If a parameter is already defined at the [Path Item](https://spec.openapis.org/oas/v3.1.0#pathItemParameters),
     the new definition will override it but can never remove it.
     The list MUST NOT include duplicated parameters.
-    A unique parameter is defined by a combination of a `name <https://spec.openapis.org/oas/v3.1.0#parameterName>`__ and `location <https://spec.openapis.org/oas/v3.1.0#parameterIn>`__.
-    The list can use the `Reference Object <https://spec.openapis.org/oas/v3.1.0#referenceObject>`__ to link to parameters
-    that are defined at the `OpenAPI Object's components/parameters <https://spec.openapis.org/oas/v3.1.0#componentsParameters>`__.
+    A unique parameter is defined by a combination of a [name](https://spec.openapis.org/oas/v3.1.0#parameterName) and [location](https://spec.openapis.org/oas/v3.1.0#parameterIn).
+    The list can use the [Reference Object](https://spec.openapis.org/oas/v3.1.0#referenceObject) to link to parameters
+    that are defined at the [OpenAPI Object's components/parameters](https://spec.openapis.org/oas/v3.1.0#componentsParameters).
     """
 
     requestBody: Optional[Union[RequestBody, Reference]] = None
@@ -78,7 +78,7 @@ class Operation(BaseModel):
     """
     A map of possible out-of band callbacks related to the parent operation.
     The key is a unique identifier for the Callback Object.
-    Each value in the map is a `Callback Object <https://spec.openapis.org/oas/v3.1.0#callbackObject>`__
+    Each value in the map is a [Callback Object](https://spec.openapis.org/oas/v3.1.0#callbackObject)
     that describes a request that may be initiated by the API provider and the expected responses.
     """
 
@@ -95,7 +95,7 @@ class Operation(BaseModel):
     The list of values includes alternative security requirement objects that can be used.
     Only one of the security requirement objects need to be satisfied to authorize a request.
     To make security optional, an empty security requirement (`{}`) can be included in the array.
-    This definition overrides any declared top-level `security <https://spec.openapis.org/oas/v3.1.0#oasSecurity>`__.
+    This definition overrides any declared top-level [security](https://spec.openapis.org/oas/v3.1.0#oasSecurity).
     To remove a top-level security declaration, an empty array can be used.
     """
 

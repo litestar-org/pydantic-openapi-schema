@@ -6,9 +6,7 @@ from .oauth_flow import OAuthFlow
 
 
 class OAuthFlows(BaseModel):
-    """
-    Allows configuration of the supported OAuth Flows.
-    """
+    """Allows configuration of the supported OAuth Flows."""
 
     implicit: Optional[OAuthFlow] = None
     """

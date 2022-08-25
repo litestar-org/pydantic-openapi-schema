@@ -6,8 +6,7 @@ from .oauth_flows import OAuthFlows
 
 
 class SecurityScheme(BaseModel):
-    """
-    Defines a security scheme that can be used by the operations.
+    """Defines a security scheme that can be used by the operations.
 
     Supported schemes are HTTP authentication,
     an API key (either as a header, a cookie parameter or as a query parameter),
@@ -30,7 +29,7 @@ class SecurityScheme(BaseModel):
     description: Optional[str] = None
     """
     A description for security scheme.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     name: Optional[str] = None

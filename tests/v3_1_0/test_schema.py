@@ -19,7 +19,7 @@ def test_schema() -> None:
 
 
 def test_issue_4() -> None:
-    """https://github.com/kuimono/openapi-schema-pydantic/issues/4"""
+    """https://github.com/kuimono/openapi-schema-pydantic/issues/4."""
 
     class TestModel(BaseModel):
         test_field: str

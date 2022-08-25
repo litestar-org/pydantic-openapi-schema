@@ -37,7 +37,7 @@ class Encoding(BaseModel):
     """
     Describes how a specific property value will be serialized depending on its type.
 
-    See `Parameter Object <https://spec.openapis.org/oas/v3.0.3#parameterObject>`__ for details on the `style <https://spec.openapis.org/oas/v3.0.3#parameterStyle>`__ property.
+    See [Parameter Object](https://spec.openapis.org/oas/v3.0.3#parameterObject) for details on the [style](https://spec.openapis.org/oas/v3.0.3#parameterStyle) property.
     The behavior follows the same values as `query` parameters, including default values.
     This property SHALL be ignored if the request body media type is not `application/x-www-form-urlencoded`.
     """
@@ -48,14 +48,14 @@ class Encoding(BaseModel):
     for each value of the array, or key-value-pair of the map.
 
     For other types of properties this property has no effect.
-    When `style <https://spec.openapis.org/oas/v3.0.3#encodingStyle>`__ is `form`, the default value is `true`.
+    When [style](https://spec.openapis.org/oas/v3.0.3#encodingStyle) is `form`, the default value is `true`.
     For all other styles, the default value is `false`.
     This property SHALL be ignored if the request body media type is not `application/x-www-form-urlencoded`.
     """
 
     allowReserved: bool = False
     """
-    Determines whether the parameter value SHOULD allow reserved characters, as defined by `RFC3986 <https://tools.ietf.org/html/rfc3986#section-2.2>`__
+    Determines whether the parameter value SHOULD allow reserved characters, as defined by [RFC3986](https://tools.ietf.org/html/rfc3986#section-2.2)
     `:/?#[]@!$&'()*+,;=` to be included without percent-encoding.
     The default value is `false`.
     This property is ignored if the request body media type is not `application/x-www-form-urlencoded`.

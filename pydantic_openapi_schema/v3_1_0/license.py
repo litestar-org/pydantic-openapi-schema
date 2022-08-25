@@ -4,9 +4,7 @@ from pydantic import AnyUrl, BaseModel, Extra
 
 
 class License(BaseModel):
-    """
-    License information for the exposed API.
-    """
+    """License information for the exposed API."""
 
     name: str
     """
@@ -15,7 +13,7 @@ class License(BaseModel):
 
     identifier: Optional[str] = None
     """
-    An `SPDX <https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60>`__ license expression for the API.
+    An [SPDX](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60) license expression for the API.
     The `identifier` field is mutually exclusive of the `url` field.
     """
 

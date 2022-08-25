@@ -15,7 +15,7 @@ def test_readme_example() -> None:
 
 
 def readme_example_1() -> OpenAPI:
-    """Construct OpenAPI using data class"""
+    """Construct OpenAPI using data class."""
     return OpenAPI(
         info=Info(
             title="My own API",
@@ -26,7 +26,7 @@ def readme_example_1() -> OpenAPI:
 
 
 def readme_example_2() -> OpenAPI:
-    """Construct OpenAPI from raw data object"""
+    """Construct OpenAPI from raw data object."""
     return OpenAPI.parse_obj(
         {
             "info": {"title": "My own API", "version": "v0.0.1"},
@@ -36,7 +36,7 @@ def readme_example_2() -> OpenAPI:
 
 
 def readme_example_3() -> OpenAPI:
-    """Construct OpenAPI from mixed object"""
+    """Construct OpenAPI from mixed object."""
     return OpenAPI.parse_obj(
         {
             "info": {"title": "My own API", "version": "v0.0.1"},

@@ -6,16 +6,16 @@ from .server import Server
 
 
 class Link(BaseModel):
-    """
-    The `Link object` represents a possible design-time link for a response.
-    The presence of a link does not guarantee the caller's ability to successfully invoke it,
-    rather it provides a known relationship and traversal mechanism between responses and other operations.
+    """The `Link object` represents a possible design-time link for a response.
+    The presence of a link does not guarantee the caller's ability to
+    successfully invoke it, rather it provides a known relationship and
+    traversal mechanism between responses and other operations.
 
     Unlike _dynamic_ links (i.e. links provided **in** the response payload),
     the OAS linking mechanism does not require link information in the runtime response.
 
     For computing links, and providing instructions to execute them,
-    a `Runtime Expression <https://spec.openapis.org/oas/v3.0.3#runtimeExpression>`__ is used for accessing values in an operation
+    a [Runtime Expression](https://spec.openapis.org/oas/v3.0.3#runtimeExpression) is used for accessing values in an operation
     and using them as parameters while invoking the linked operation.
     """
 
@@ -23,8 +23,8 @@ class Link(BaseModel):
     """
     A relative or absolute URI reference to an OAS operation.
     This field is mutually exclusive of the `operationId` field,
-    and MUST point to an `Operation Object <https://spec.openapis.org/oas/v3.0.3#operationObject>`__.
-    Relative `operationRef` values MAY be used to locate an existing `Operation Object <https://spec.openapis.org/oas/v3.0.3#operationObject>`__
+    and MUST point to an [Operation Object](https://spec.openapis.org/oas/v3.0.3#operationObject).
+    Relative `operationRef` values MAY be used to locate an existing [Operation Object](https://spec.openapis.org/oas/v3.0.3#operationObject)
     in the OpenAPI definition.
     """
 
@@ -42,19 +42,19 @@ class Link(BaseModel):
     The key is the parameter name to be used,
     whereas the value can be a constant or an expression to be evaluated and passed to the linked operation.
 
-    The parameter name can be qualified using the `parameter location <https://spec.openapis.org/oas/v3.0.3#parameterIn>`__ `[{in}.]{name}`
+    The parameter name can be qualified using the [parameter location](https://spec.openapis.org/oas/v3.0.3#parameterIn) `[{in}.]{name}`
     for operations that use the same parameter name in different locations (e.g. path.id).
     """
 
     requestBody: Optional[Any] = None
     """
-    A literal value or `Runtime Expression <https://spec.openapis.org/oas/v3.0.3#runtimeExpression>`__ to use as a request body when calling the target operation.
+    A literal value or [Runtime Expression](https://spec.openapis.org/oas/v3.0.3#runtimeExpression) to use as a request body when calling the target operation.
     """
 
     description: Optional[str] = None
     """
     A description of the link.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     server: Optional[Server] = None

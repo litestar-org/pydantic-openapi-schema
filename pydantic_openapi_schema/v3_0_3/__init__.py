@@ -1,6 +1,5 @@
-"""
-OpenAPI v3.0.3 schema types, created according to the specification:
-https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md
+"""OpenAPI v3.0.3 schema types, created according to the specification:
+https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md.
 
 The type orders are according to the contents of the specification:
 https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#table-of-contents

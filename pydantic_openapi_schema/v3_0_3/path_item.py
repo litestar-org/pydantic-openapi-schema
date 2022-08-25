@@ -9,9 +9,9 @@ from .server import Server
 
 
 class PathItem(BaseModel):
-    """
-    Describes the operations available on a single path.
-    A Path Item MAY be empty, due to `ACL constraints <https://spec.openapis.org/oas/v3.0.3#securityFiltering>`__.
+    """Describes the operations available on a single path.
+
+    A Path Item MAY be empty, due to [ACL constraints](https://spec.openapis.org/oas/v3.0.3#securityFiltering).
     The path itself is still exposed to the documentation viewer
     but they will not know which operations and parameters are available.
     """
@@ -19,7 +19,7 @@ class PathItem(BaseModel):
     ref: Optional[str] = Field(default=None, alias="$ref")
     """
     Allows for an external definition of this path item.
-    The referenced structure MUST be in the format of a `Path Item Object <https://spec.openapis.org/oas/v3.0.3#pathItemObject>`__.
+    The referenced structure MUST be in the format of a [Path Item Object](https://spec.openapis.org/oas/v3.0.3#pathItemObject).
 
     In case a Path Item Object field appears both in the defined object and the referenced object,
     the behavior is undefined.
@@ -33,7 +33,7 @@ class PathItem(BaseModel):
     description: Optional[str] = None
     """
     An optional, string description, intended to apply to all operations in this path.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     get: Optional[Operation] = None
@@ -86,9 +86,9 @@ class PathItem(BaseModel):
     A list of parameters that are applicable for all the operations described under this path.
     These parameters can be overridden at the operation level, but cannot be removed there.
     The list MUST NOT include duplicated parameters.
-    A unique parameter is defined by a combination of a `name <https://spec.openapis.org/oas/v3.0.3#parameterName>`__ and `location <https://spec.openapis.org/oas/v3.0.3#parameterIn>`__.
-    The list can use the `Reference Object <https://spec.openapis.org/oas/v3.0.3#referenceObject>`__ to link to parameters that are defined at the
-    `OpenAPI Object's components/parameters <https://spec.openapis.org/oas/v3.0.3#componentsParameters>`__.
+    A unique parameter is defined by a combination of a [name](https://spec.openapis.org/oas/v3.0.3#parameterName) and [location](https://spec.openapis.org/oas/v3.0.3#parameterIn).
+    The list can use the [Reference Object](https://spec.openapis.org/oas/v3.0.3#referenceObject) to link to parameters that are defined at the
+    [OpenAPI Object's components/parameters](https://spec.openapis.org/oas/v3.0.3#componentsParameters).
     """
 
     class Config:

@@ -9,28 +9,26 @@ from .reference import Reference
 
 
 class Response(BaseModel):
-    """
-    Describes a single response from an API Operation, including design-time,
-    static `links` to operations based on the response.
-    """
+    """Describes a single response from an API Operation, including design-
+    time, static `links` to operations based on the response."""
 
     description: str
     """
     **REQUIRED**. A short description of the response.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     headers: Optional[Dict[str, Union[Header, Reference]]] = None
     """
     Maps a header name to its definition.
-    `RFC7230 <https://tools.ietf.org/html/rfc7230#page-22>`__ states header names are case insensitive.
+    [RFC7230](https://tools.ietf.org/html/rfc7230#page-22) states header names are case insensitive.
     If a response header is defined with the name `"Content-Type"`, it SHALL be ignored.
     """
 
     content: Optional[Dict[str, MediaType]] = None
     """
     A map containing descriptions of potential response payloads.
-    The key is a media type or `media type range <https://tools.ietf.org/html/rfc7231#appendix-D>`__
+    The key is a media type or [media type range](https://tools.ietf.org/html/rfc7231#appendix-D)
     and the value describes it.
 
     For responses that match multiple keys, only the most specific key is applicable. e.g. text/plain overrides text/*

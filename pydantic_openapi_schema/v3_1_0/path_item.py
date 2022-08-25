@@ -9,9 +9,9 @@ from .server import Server
 
 
 class PathItem(BaseModel):
-    """
-    Describes the operations available on a single path.
-    A Path Item MAY be empty, due to `ACL constraints <https://spec.openapis.org/oas/v3.1.0#securityFiltering>`__.
+    """Describes the operations available on a single path.
+
+    A Path Item MAY be empty, due to [ACL constraints](https://spec.openapis.org/oas/v3.1.0#securityFiltering).
     The path itself is still exposed to the documentation viewer
     but they will not know which operations and parameters are available.
     """
@@ -19,11 +19,11 @@ class PathItem(BaseModel):
     ref: Optional[str] = Field(default=None, alias="$ref")
     """
     Allows for an external definition of this path item.
-    The referenced structure MUST be in the format of a `Path Item Object <https://spec.openapis.org/oas/v3.1.0#pathItemObject>`__.
+    The referenced structure MUST be in the format of a [Path Item Object](https://spec.openapis.org/oas/v3.1.0#pathItemObject).
 
     In case a Path Item Object field appears both in the defined object and the referenced object,
     the behavior is undefined.
-    See the rules for resolving `Relative References <https://spec.openapis.org/oas/v3.1.0#relativeReferencesURI>`__.
+    See the rules for resolving [Relative References](https://spec.openapis.org/oas/v3.1.0#relativeReferencesURI).
     """
 
     summary: Optional[str] = None
@@ -34,7 +34,7 @@ class PathItem(BaseModel):
     description: Optional[str] = None
     """
     An optional, string description, intended to apply to all operations in this path.
-    `CommonMark syntax <https://spec.commonmark.org/>`__ MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
     """
 
     get: Optional[Operation] = None
@@ -87,9 +87,9 @@ class PathItem(BaseModel):
     A list of parameters that are applicable for all the operations described under this path.
     These parameters can be overridden at the operation level, but cannot be removed there.
     The list MUST NOT include duplicated parameters.
-    A unique parameter is defined by a combination of a `name <https://spec.openapis.org/oas/v3.1.0#parameterName>`__ and `location <https://spec.openapis.org/oas/v3.1.0#parameterIn>`__.
-    The list can use the `Reference Object <https://spec.openapis.org/oas/v3.1.0#referenceObject>`__ to link to parameters that are defined at the
-    `OpenAPI Object's components/parameters <https://spec.openapis.org/oas/v3.1.0#componentsParameters>`__.
+    A unique parameter is defined by a combination of a [name](https://spec.openapis.org/oas/v3.1.0#parameterName) and [location](https://spec.openapis.org/oas/v3.1.0#parameterIn).
+    The list can use the [Reference Object](https://spec.openapis.org/oas/v3.1.0#referenceObject) to link to parameters that are defined at the
+    [OpenAPI Object's components/parameters](https://spec.openapis.org/oas/v3.1.0#componentsParameters).
     """
 
     class Config:
