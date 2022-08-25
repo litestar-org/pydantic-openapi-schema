@@ -4,7 +4,7 @@ from pydantic_openapi_schema.v3_1_0 import SecurityScheme
 
 
 def test_security_scheme_issue_5() -> None:
-    """https://github.com/kuimono/openapi-schema-pydantic/issues/5"""
+    """https://github.com/kuimono/openapi-schema-pydantic/issues/5."""
 
     security_scheme_1 = SecurityScheme(type="openIdConnect", openIdConnectUrl="https://example.com/openIdConnect")
     assert isinstance(security_scheme_1.openIdConnectUrl, (AnyUrl, str))

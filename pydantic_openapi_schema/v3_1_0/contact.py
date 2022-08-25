@@ -4,9 +4,7 @@ from pydantic import AnyUrl, BaseModel, EmailStr, Extra, validator
 
 
 class Contact(BaseModel):
-    """
-    Contact information for the exposed API.
-    """
+    """Contact information for the exposed API."""
 
     name: Optional[str] = None
     """
@@ -30,7 +28,7 @@ class Contact(BaseModel):
         cls,
         v: Union[EmailStr, str],
     ) -> EmailStr:
-        """Validates that email is a valid email address
+        """Validates that email is a valid email address.
 
         Args:
             v: Holds the email string to be validated

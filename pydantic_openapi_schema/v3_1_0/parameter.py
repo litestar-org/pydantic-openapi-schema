@@ -9,8 +9,7 @@ from .schema import Schema
 
 
 class Parameter(BaseModel):
-    """
-    Describes a single operation parameter.
+    """Describes a single operation parameter.
 
     A unique parameter is defined by a combination of a [name](https://spec.openapis.org/oas/v3.1.0#parameterName) and [location](https://spec.openapis.org/oas/v3.1.0#parameterIn).
     """

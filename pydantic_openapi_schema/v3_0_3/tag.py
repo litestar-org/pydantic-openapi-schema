@@ -6,9 +6,11 @@ from .external_documentation import ExternalDocumentation
 
 
 class Tag(BaseModel):
-    """
-    Adds metadata to a single tag that is used by the [Operation Object](https://spec.openapis.org/oas/v3.0.3#operationObject).
-    It is not mandatory to have a Tag Object per tag defined in the Operation Object instances.
+    """Adds metadata to a single tag that is used by the [Operation
+    Object](https://spec.openapis.org/oas/v3.0.3#operationObject).
+
+    It is not mandatory to have a Tag Object per tag defined in the
+    Operation Object instances.
     """
 
     name: str

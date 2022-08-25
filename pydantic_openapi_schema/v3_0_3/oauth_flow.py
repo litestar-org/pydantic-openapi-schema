@@ -4,9 +4,7 @@ from pydantic import AnyUrl, BaseModel, Extra
 
 
 class OAuthFlow(BaseModel):
-    """
-    Configuration details for a supported OAuth Flow
-    """
+    """Configuration details for a supported OAuth Flow."""
 
     authorizationUrl: Optional[Union[AnyUrl, str]] = None
     """

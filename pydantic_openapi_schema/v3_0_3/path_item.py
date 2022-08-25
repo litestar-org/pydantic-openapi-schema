@@ -9,8 +9,8 @@ from .server import Server
 
 
 class PathItem(BaseModel):
-    """
-    Describes the operations available on a single path.
+    """Describes the operations available on a single path.
+
     A Path Item MAY be empty, due to [ACL constraints](https://spec.openapis.org/oas/v3.0.3#securityFiltering).
     The path itself is still exposed to the documentation viewer
     but they will not know which operations and parameters are available.

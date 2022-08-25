@@ -11,7 +11,7 @@ def test_swagger_openapi_v3() -> None:
 
 
 class ExtendedOperation(Operation):
-    """Override classes to use "x-codegen-request-body-name" in Operation"""
+    """Override classes to use "x-codegen-request-body-name" in Operation."""
 
     xCodegenRequestBodyName: Optional[str] = Field(default=None, alias="x-codegen-request-body-name")
 

@@ -4,12 +4,11 @@ from pydantic import BaseModel, Extra
 
 
 class XML(BaseModel):
-    """
-    A metadata object that allows for more fine-tuned XML model definitions.
+    """A metadata object that allows for more fine-tuned XML model definitions.
 
-    When using arrays, XML element names are *not* inferred (for singular/plural forms)
-    and the `name` property SHOULD be used to add that information.
-    See examples for expected behavior.
+    When using arrays, XML element names are *not* inferred (for
+    singular/plural forms) and the `name` property SHOULD be used to add
+    that information. See examples for expected behavior.
     """
 
     name: Optional[str] = None

@@ -14,14 +14,14 @@ T = TypeVar("T", bound=Union[v3_0_3.OpenAPI, v3_1_0.OpenAPI])
 
 
 class OpenAPI303PydanticSchema(v3_0_3.Schema):
-    """Special `Schema` class to indicate a reference from pydantic class"""
+    """Special `Schema` class to indicate a reference from pydantic class."""
 
     schema_class: Type[BaseModel]
     """the class that is used for generate the schema"""
 
 
 class OpenAPI310PydanticSchema(v3_1_0.Schema):
-    """Special `Schema` class to indicate a reference from pydantic class"""
+    """Special `Schema` class to indicate a reference from pydantic class."""
 
     schema_class: Type[BaseModel]
     """the class that is used for generate the schema"""
@@ -33,8 +33,8 @@ def construct_open_api_with_schema_class(
     scan_for_pydantic_schema_reference: bool = True,
     by_alias: bool = True,
 ) -> T:
-    """
-    Construct a new OpenAPI object, with the use of pydantic classes to produce JSON schemas
+    """Construct a new OpenAPI object, with the use of pydantic classes to
+    produce JSON schemas.
 
     Args:
         open_api_schema: the base `OpenAPI` object
@@ -78,8 +78,9 @@ def construct_open_api_with_schema_class(
 def extract_pydantic_types_to_openapi_components(
     obj: Any, ref_class: Union[Type[v3_0_3.Reference], Type[v3_1_0.Reference]]
 ) -> Set[Type[BaseModel]]:
-    """Recursively traverses the OpenAPI document, replacing any found Pydantic Models with $references
-    to the schema's components section and returning the pydantic models themselves.
+    """Recursively traverses the OpenAPI document, replacing any found Pydantic
+    Models with $references to the schema's components section and returning
+    the pydantic models themselves.
 
     Args:
         obj:

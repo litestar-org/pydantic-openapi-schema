@@ -5,8 +5,9 @@ from .parameter import Parameter
 
 
 class Header(Parameter):
-    """
-    The Header Object follows the structure of the [Parameter Object](https://spec.openapis.org/oas/v3.0.3#parameterObject) with the following changes:
+    """The Header Object follows the structure of the [Parameter
+    Object](https://spec.openapis.org/oas/v3.0.3#parameterObject) with the
+    following changes:
 
     1. `name` MUST NOT be specified, it is given in the corresponding `headers` map.
     2. `in` MUST NOT be specified, it is implicitly in `header`.

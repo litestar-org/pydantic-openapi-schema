@@ -9,10 +9,10 @@ from .xml import XML
 
 
 class Schema(BaseModel):
-    """
-    The Schema Object allows the definition of input and output data types.
-    These types can be objects, but also primitives and arrays.
-    This object is an extended subset of the [JSON Schema Specification Wright Draft 00](https://json-schema.org/).
+    """The Schema Object allows the definition of input and output data types.
+    These types can be objects, but also primitives and arrays. This object is
+    an extended subset of the [JSON Schema Specification Wright Draft
+    00](https://json-schema.org/).
 
     For more information about the properties,
     see [JSON Schema Core](https://tools.ietf.org/html/draft-wright-json-schema-00)

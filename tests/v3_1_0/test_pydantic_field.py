@@ -23,7 +23,7 @@ from pydantic_openapi_schema.v3_1_0 import (
 
 
 def test_pydantic_discriminator_schema_generation() -> None:
-    """https://github.com/kuimono/openapi-schema-pydantic/issues/8"""
+    """https://github.com/kuimono/openapi-schema-pydantic/issues/8."""
 
     json_schema = schema([RequestModel])
     assert json_schema == {
@@ -60,7 +60,7 @@ def test_pydantic_discriminator_schema_generation() -> None:
 
 
 def test_pydantic_discriminator_openapi_generation() -> None:
-    """https://github.com/kuimono/openapi-schema-pydantic/issues/8"""
+    """https://github.com/kuimono/openapi-schema-pydantic/issues/8."""
 
     open_api = construct_open_api_with_schema_class(construct_base_open_api())
     json_schema = open_api.components.schemas["RequestModel"]  # type: ignore

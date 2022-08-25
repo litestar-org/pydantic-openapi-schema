@@ -31,7 +31,7 @@ class OpenAPI(BaseModel):
     """
     An array of Server Objects, which provide connectivity information to a target server.
     If the `servers` property is not provided, or is an empty array,
-    the default value would be a [Server Object](https://spec.openapis.org/oas/v3.0.3#serverObject) 
+    the default value would be a [Server Object](https://spec.openapis.org/oas/v3.0.3#serverObject)
     with a [url](https://spec.openapis.org/oas/v3.0.3#serverUrl) value of `/`.
     """
 
