@@ -32,7 +32,9 @@ In comparison to the original library this library has:
 5. updated export paths
 6. continuous maintenance
 
-Use is mostly identical to upstream package.
+Usage is mostly identical to upstream package.
+
+Checkout [the docs 📚](https://starlite-api.github.io/pydantic-openapi-schema/).
 
 ## Installation
 
