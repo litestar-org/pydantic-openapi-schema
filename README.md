@@ -1,7 +1,7 @@
 # Pydantic OpenAPI Schema
 
 <!-- markdownlint-disable -->
-<img alt="Starlite logo" src="./images/starlite-banner.svg" width="100%" height="auto">
+<img alt="Starlite logo" src="./docs/images/starlite-banner.svg" width="100%" height="auto">
 <!-- markdownlint-restore -->
 
 <div align="center">
