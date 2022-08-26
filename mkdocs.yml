@@ -29,7 +29,6 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - navigation.top
-    - navigation.expand
     - toc.integrate
     - search.suggest
     - search.highlight

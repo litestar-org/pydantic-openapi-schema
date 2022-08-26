@@ -1,6 +1,7 @@
 from typing import Optional, Union
 
 from pydantic import AnyUrl, BaseModel, Extra, Field
+from typing_extensions import Literal
 
 from .oauth_flows import OAuthFlows
 
@@ -20,10 +21,9 @@ class SecurityScheme(BaseModel):
     Recommended for most use case is Authorization Code Grant flow with PKCE.
     """
 
-    type: str
+    type: Literal["apiKey", "http", "mutualTLS", "oauth2", "openIdConnect"]
     """
     **REQUIRED**. The type of the security scheme.
-    Valid values are `"apiKey"`, `"http"`, "mutualTLS", `"oauth2"`, `"openIdConnect"`.
     """
 
     description: Optional[str] = None
@@ -37,9 +37,9 @@ class SecurityScheme(BaseModel):
     **REQUIRED** for `apiKey`. The name of the header, query or cookie parameter to be used.
     """
 
-    security_scheme_in: Optional[str] = Field(alias="in", default=None)
+    security_scheme_in: Optional[Literal["query", "header", "cookie"]] = Field(alias="in", default=None)
     """
-    **REQUIRED** for `apiKey`. The location of the API key. Valid values are `"query"`, `"header"` or `"cookie"`.
+    **REQUIRED** for `apiKey`. The location of the API key.
     """
 
     scheme: Optional[str] = None
