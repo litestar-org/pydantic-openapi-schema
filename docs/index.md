@@ -31,6 +31,7 @@ In comparison to the original library this library has:
 4. updated utilities
 5. updated export paths
 6. continuous maintenance
+7. dropped support for v3.0.3
 
 Use is mostly identical to upstream package.
 

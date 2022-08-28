@@ -15,3 +15,7 @@
 [v1.0.3]
 
 - update dependencies and docstrings.
+
+[v1.1.0]
+
+- removes `v3_0_3`
