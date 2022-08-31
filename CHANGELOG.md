@@ -1,5 +1,9 @@
 # Changelog
 
+[v1.2.0]
+
+- update to pydantic `v1.1.0`
+
 [v1.1.0]
 
 - removes `v3_0_3`.
