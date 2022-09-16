@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, List, Optional, Set, Type, TypeVar, cast
+from typing import TYPE_CHECKING, Any, Set, Type, TypeVar, cast
 
 from pydantic import BaseModel, create_model
 from pydantic.schema import schema
@@ -23,40 +23,26 @@ class OpenAPI310PydanticSchema(v3_1_0.Schema):
 
 def construct_open_api_with_schema_class(
     open_api_schema: T,
-    schema_classes: Optional[List[Type[BaseModel]]] = None,
-    scan_for_pydantic_schema_reference: bool = True,
-    by_alias: bool = True,
 ) -> T:
     """Construct a new OpenAPI object, with the use of pydantic classes to
     produce JSON schemas.
 
     Args:
-        open_api_schema: the base `OpenAPI` object
-        schema_classes: pydantic classes that their schema will be used as "#/components/schemas" values
-        scan_for_pydantic_schema_reference: flag to indicate if scanning for `PydanticSchemaReference`
-            class is needed for "#/components/schemas" value updates
-        by_alias: construct schema by alias (default is True)
+        open_api_schema: An instance of the OpenAPI model.
 
     Returns:
         new OpenAPI object with "#/components/schemas" values updated. If there is no update in
             "#/components/schemas" values, the original `open_api` will be returned.
     """
     copied_schema = open_api_schema.copy(deep=True)
-
-    if scan_for_pydantic_schema_reference:
-        extracted_schema_classes = extract_pydantic_types_to_openapi_components(
-            obj=copied_schema, ref_class=v3_1_0.Reference
-        )
-        schema_classes = list(
-            {*schema_classes, *extracted_schema_classes} if schema_classes else extracted_schema_classes
-        )
+    schema_classes = list(extract_pydantic_types_to_openapi_components(obj=copied_schema, ref_class=v3_1_0.Reference))
 
     if not schema_classes:
         return open_api_schema
 
     if not copied_schema.components:
         copied_schema.components = v3_1_0.Components(schemas={})
-    elif not copied_schema.components.schemas:
+    if copied_schema.components.schemas is None:  # pragma: no cover
         copied_schema.components.schemas = cast("Dict[str, Any]", {})
 
     schema_classes = [
@@ -64,8 +50,8 @@ def construct_open_api_with_schema_class(
         for cls in schema_classes
     ]
     schema_classes.sort(key=lambda x: x.__name__)
-    schema_definitions = schema(schema_classes, by_alias=by_alias, ref_prefix=REF_PREFIX)["definitions"]
-    copied_schema.components.schemas.update(  # type: ignore
+    schema_definitions = schema(schema_classes, ref_prefix=REF_PREFIX)["definitions"]
+    copied_schema.components.schemas.update(
         {key: v3_1_0.Schema.parse_obj(schema_dict) for key, schema_dict in schema_definitions.items()}
     )
     return copied_schema
