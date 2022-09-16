@@ -28,7 +28,7 @@ packages = [
 ]
 [tool.poetry.dependencies]
 python = ">=3.7"
-pydantic = "*"
+pydantic = ">=1.10.0"
 email-validator = "*"
 
 [tool.poetry.dev-dependencies]
