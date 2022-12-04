@@ -9,8 +9,7 @@ class Tag(BaseModel):
     """Adds metadata to a single tag that is used by the [Operation
     Object](https://spec.openapis.org/oas/v3.1.0#operationObject).
 
-    It is not mandatory to have a Tag Object per tag defined in the
-    Operation Object instances.
+    It is not mandatory to have a Tag Object per tag defined in the Operation Object instances.
     """
 
     name: str

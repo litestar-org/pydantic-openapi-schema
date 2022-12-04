@@ -4,8 +4,7 @@ from pydantic import BaseModel, Extra
 
 
 class ServerVariable(BaseModel):
-    """An object representing a Server Variable for server URL template
-    substitution."""
+    """An object representing a Server Variable for server URL template substitution."""
 
     enum: Optional[List[str]] = None
     """

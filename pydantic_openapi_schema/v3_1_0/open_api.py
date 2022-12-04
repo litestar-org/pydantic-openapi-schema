@@ -14,7 +14,7 @@ from .tag import Tag
 
 
 class OpenAPI(BaseModel):
-    """This is the root document object of the OpenAPI document."""
+    """Root OpenAPI document."""
 
     openapi: str = "3.1.0"
     """

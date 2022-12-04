@@ -9,8 +9,7 @@ from .schema import Schema
 
 
 class MediaType(BaseModel):
-    """Each Media Type Object provides schema and examples for the media type
-    identified by its key."""
+    """Each Media Type Object provides schema and examples for the media type identified by its key."""
 
     media_type_schema: Optional[Union[Reference, Schema]] = Field(default=None, alias="schema")
     """

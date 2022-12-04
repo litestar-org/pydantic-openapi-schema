@@ -9,9 +9,8 @@ from .license import License
 class Info(BaseModel):
     """The object provides metadata about the API.
 
-    The metadata MAY be used by the clients if needed, and MAY be
-    presented in editing or documentation generation tools for
-    convenience.
+    The metadata MAY be used by the clients if needed, and MAY be presented in editing or documentation generation tools
+    for convenience.
     """
 
     title: str

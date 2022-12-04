@@ -28,7 +28,7 @@ class Contact(BaseModel):
         cls,
         v: Union[EmailStr, str],
     ) -> EmailStr:
-        """Validates that email is a valid email address.
+        """Validate email address.
 
         Args:
             v: Holds the email string to be validated
@@ -39,9 +39,7 @@ class Contact(BaseModel):
         Returns:
             Validated email string.
         """
-        if isinstance(v, str):
-            v = EmailStr(v)
-        return v
+        return EmailStr(v) if isinstance(v, str) else v
 
     class Config:
         extra = Extra.ignore

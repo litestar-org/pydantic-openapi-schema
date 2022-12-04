@@ -6,3 +6,5 @@ type-checking-pydantic-enabled = true
 classmethod-decorators =
     classmethod
     validator
+per-file-ignores =
+    tests/*:SCS108

@@ -4,8 +4,7 @@ from pydantic import BaseModel, Extra, Field
 
 
 class Reference(BaseModel):
-    """A simple object to allow referencing other components in the OpenAPI
-    document, internally and externally.
+    """A simple object to allow referencing other components in the OpenAPI document, internally and externally.
 
     The `$ref` string value contains a URI [RFC3986](https://tools.ietf.org/html/rfc3986),
     which identifies the location of the value being referenced.

@@ -9,9 +9,8 @@ from .xml import XML
 
 
 class Schema(BaseModel):
-    """The Schema Object allows the definition of input and output data types.
-    These types can be objects, but also primitives and arrays. This object is
-    a superset of the [JSON Schema Specification Draft
+    """The Schema Object allows the definition of input and output data types. These types can be objects, but also
+    primitives and arrays. This object is a superset of the [JSON Schema Specification Draft
     2020-12](https://tools.ietf.org/html/draft-bhutton-json-schema-00).
 
     For more information about the properties,

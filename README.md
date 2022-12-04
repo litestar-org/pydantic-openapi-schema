@@ -20,17 +20,7 @@
 </div>
 
 This library is a fork of [openapi-schema-pydantic](https://github.com/kuimono/openapi-schema-pydantic). Its used
-and is bundled by [Starlite](https://github.com/starlite-api/starlite). You can
-see [this issue](https://github.com/kuimono/openapi-schema-pydantic/issues/24) in the upstream repository regarding it.
-
-In comparison to the original library this library has:
-
-1. updated docstrings with fixed links
-2. no typing issues
-3. updated types
-4. updated utilities
-5. updated export paths
-6. continuous maintenance
+and is bundled by [Starlite](https://github.com/starlite-api/starlite).
 
 Usage is mostly identical to upstream package.
 

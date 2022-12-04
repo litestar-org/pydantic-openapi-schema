@@ -1,7 +1,6 @@
-from typing import Union
+from typing import Literal, Union
 
 from pydantic import BaseModel, Field
-from typing_extensions import Literal
 
 from pydantic_openapi_schema.utils.utils import (
     OpenAPI310PydanticSchema,

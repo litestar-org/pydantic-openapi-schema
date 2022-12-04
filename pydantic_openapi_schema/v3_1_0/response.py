@@ -9,8 +9,9 @@ from .reference import Reference
 
 
 class Response(BaseModel):
-    """Describes a single response from an API Operation, including design-
-    time, static `links` to operations based on the response."""
+    """Describes a single response from an API Operation, including design- time, static `links` to operations based on
+    the response.
+    """
 
     description: str
     """

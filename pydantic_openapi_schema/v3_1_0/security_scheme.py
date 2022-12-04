@@ -1,7 +1,6 @@
-from typing import Optional, Union
+from typing import Literal, Optional, Union
 
 from pydantic import AnyUrl, BaseModel, Extra, Field
-from typing_extensions import Literal
 
 from .oauth_flows import OAuthFlows
 

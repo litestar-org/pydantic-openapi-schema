@@ -6,10 +6,9 @@ from .server import Server
 
 
 class Link(BaseModel):
-    """The `Link object` represents a possible design-time link for a response.
-    The presence of a link does not guarantee the caller's ability to
-    successfully invoke it, rather it provides a known relationship and
-    traversal mechanism between responses and other operations.
+    """The `Link object` represents a possible design-time link for a response. The presence of a link does not
+    guarantee the caller's ability to successfully invoke it, rather it provides a known relationship and traversal
+    mechanism between responses and other operations.
 
     Unlike _dynamic_ links (i.e. links provided **in** the response payload),
     the OAS linking mechanism does not require link information in the runtime response.

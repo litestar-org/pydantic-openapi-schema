@@ -1,6 +1,7 @@
-from typing import TYPE_CHECKING, Any, Set, Type, TypeVar, cast
+from typing import TYPE_CHECKING, Any, Set, Type, TypeVar, Union, cast
 
 from pydantic import BaseModel, create_model
+from pydantic.generics import GenericModel
 from pydantic.schema import schema
 
 from pydantic_openapi_schema import v3_1_0
@@ -17,15 +18,14 @@ T = TypeVar("T", bound=v3_1_0.OpenAPI)
 class OpenAPI310PydanticSchema(v3_1_0.Schema):
     """Special `Schema` class to indicate a reference from pydantic class."""
 
-    schema_class: Type[BaseModel]
+    schema_class: Union[Type[BaseModel], Type[GenericModel]]
     """the class that is used for generate the schema"""
 
 
 def construct_open_api_with_schema_class(
     open_api_schema: T,
 ) -> T:
-    """Construct a new OpenAPI object, with the use of pydantic classes to
-    produce JSON schemas.
+    """Construct a new OpenAPI object, with the use of pydantic classes to produce JSON schemas.
 
     Args:
         open_api_schema: An instance of the OpenAPI model.
@@ -57,10 +57,11 @@ def construct_open_api_with_schema_class(
     return copied_schema
 
 
-def extract_pydantic_types_to_openapi_components(obj: Any, ref_class: Type[v3_1_0.Reference]) -> Set[Type[BaseModel]]:
-    """Recursively traverses the OpenAPI document, replacing any found Pydantic
-    Models with $references to the schema's components section and returning
-    the pydantic models themselves.
+def extract_pydantic_types_to_openapi_components(
+    obj: Any, ref_class: Type[v3_1_0.Reference]
+) -> Set[Union[Type[BaseModel], Type[GenericModel]]]:
+    """Recursively traverses the OpenAPI document, replacing any found Pydantic Models with $references to the schema's
+    components section and returning the pydantic models themselves.
 
     Args:
         obj:
@@ -96,8 +97,8 @@ def extract_pydantic_types_to_openapi_components(obj: Any, ref_class: Type[v3_1_
     return pydantic_schemas
 
 
-def create_ref_prefix(model: Type[BaseModel]) -> str:
-    """
+def create_ref_prefix(model: Union[Type[BaseModel], Type[GenericModel]]) -> str:
+    """Create a ref prefix for the given model.
 
     Args:
         model: Pydantic model instance.
