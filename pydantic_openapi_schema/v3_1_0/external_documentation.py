@@ -7,9 +7,10 @@ class ExternalDocumentation(BaseModel):
     """Allows referencing an external resource for extended documentation."""
 
     description: Optional[str] = None
-    """
-    A short description of the target documentation.
-    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
+    """A short description of the target documentation.
+
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for
+    rich text representation.
     """
 
     url: AnyUrl

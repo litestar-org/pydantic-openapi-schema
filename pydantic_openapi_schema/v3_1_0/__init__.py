@@ -1,8 +1,8 @@
-"""OpenAPI v3.1.0 schema types, created according to the specification: https://github.com/OAI/OpenAPI-
-Specification/blob/master/versions/3.1.0.md.
+"""OpenAPI v3.1.0 schema types, created according to the specification:
+https://github.com/OAI/OpenAPI- Specification/blob/master/versions/3.1.0.md.
 
-The type orders are according to the contents of the specification:
-https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.0.md#table-of-contents
+The type orders are according to the contents of the specification: https://github.com/OAI/OpenAPI-
+Specification/blob/master/versions/3.1.0.md#table-of-contents
 """
 
 from .callback import Callback

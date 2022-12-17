@@ -12,16 +12,17 @@ class License(BaseModel):
     """
 
     identifier: Optional[str] = None
-    """
-    An [SPDX](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60) license expression for the API.
+    """An [SPDX](https://spdx.org/spdx-specification-21-web-
+    version#h.jxpfx0ykyb60) license expression for the API.
+
     The `identifier` field is mutually exclusive of the `url` field.
     """
 
     url: Optional[AnyUrl] = None
-    """
-    A URL to the license used for the API.
-    This MUST be in the form of a URL.
-    The `url` field is mutually exclusive of the `identifier` field.
+    """A URL to the license used for the API.
+
+    This MUST be in the form of a URL. The `url` field is mutually
+    exclusive of the `identifier` field.
     """
 
     class Config:

@@ -4,30 +4,29 @@ from pydantic import BaseModel, Extra
 
 
 class Example(BaseModel):
-
     summary: Optional[str] = None
-    """
-    Short description for the example.
-    """
+    """Short description for the example."""
 
     description: Optional[str] = None
-    """
-    Long description for the example.
-    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
+    """Long description for the example.
+
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for
+    rich text representation.
     """
 
     value: Optional[Any] = None
-    """
-    Embedded literal example.
+    """Embedded literal example.
+
     The `value` field and `externalValue` field are mutually exclusive.
-    To represent examples of media types that cannot naturally represented in JSON or YAML,
-    use a string value to contain the example, escaping where necessary.
+    To represent examples of media types that cannot naturally
+    represented in JSON or YAML, use a string value to contain the
+    example, escaping where necessary.
     """
 
     externalValue: Optional[str] = None
-    """
-    A URL that points to the literal example.
-    This provides the capability to reference examples that cannot easily be included in JSON or YAML documents.
+    """A URL that points to the literal example. This provides the capability
+    to reference examples that cannot easily be included in JSON or YAML
+    documents.
 
     The `value` field and `externalValue` field are mutually exclusive.
     See the rules for resolving [Relative References](https://spec.openapis.org/oas/v3.1.0#relativeReferencesURI).

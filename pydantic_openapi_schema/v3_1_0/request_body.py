@@ -9,11 +9,11 @@ class RequestBody(BaseModel):
     """Describes a single request body."""
 
     description: Optional[str] = None
-    """
-    A brief description of the request body.
-    This could contain examples of use.
+    """A brief description of the request body. This could contain examples of
+    use.
 
-    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for
+    rich text representation.
     """
 
     content: Dict[str, MediaType]
@@ -26,8 +26,9 @@ class RequestBody(BaseModel):
     """
 
     required: bool = False
-    """
-    Determines if the request body is required in the request. Defaults to `false`.
+    """Determines if the request body is required in the request.
+
+    Defaults to `false`.
     """
 
     class Config:

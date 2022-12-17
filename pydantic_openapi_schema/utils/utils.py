@@ -19,16 +19,16 @@ class OpenAPI310PydanticSchema(v3_1_0.Schema):
     """Special `Schema` class to indicate a reference from pydantic class."""
 
     schema_class: Union[Type[BaseModel], Type[GenericModel]]
-    """the class that is used for generate the schema"""
+    """The class that is used for generate the schema."""
 
 
-def construct_open_api_with_schema_class(
-    open_api_schema: T,
-) -> T:
-    """Construct a new OpenAPI object, with the use of pydantic classes to produce JSON schemas.
+def construct_open_api_with_schema_class(open_api_schema: T, by_alias: bool = True) -> T:
+    """Construct a new OpenAPI object, with the use of pydantic classes to
+    produce JSON schemas.
 
     Args:
         open_api_schema: An instance of the OpenAPI model.
+        by_alias: Construct schema by alias.
 
     Returns:
         new OpenAPI object with "#/components/schemas" values updated. If there is no update in
@@ -50,7 +50,7 @@ def construct_open_api_with_schema_class(
         for cls in schema_classes
     ]
     schema_classes.sort(key=lambda x: x.__name__)
-    schema_definitions = schema(schema_classes, ref_prefix=REF_PREFIX)["definitions"]
+    schema_definitions = schema(schema_classes, ref_prefix=REF_PREFIX, by_alias=by_alias)["definitions"]
     copied_schema.components.schemas.update(
         {key: v3_1_0.Schema.parse_obj(schema_dict) for key, schema_dict in schema_definitions.items()}
     )
@@ -60,8 +60,9 @@ def construct_open_api_with_schema_class(
 def extract_pydantic_types_to_openapi_components(
     obj: Any, ref_class: Type[v3_1_0.Reference]
 ) -> Set[Union[Type[BaseModel], Type[GenericModel]]]:
-    """Recursively traverses the OpenAPI document, replacing any found Pydantic Models with $references to the schema's
-    components section and returning the pydantic models themselves.
+    """Recursively traverses the OpenAPI document, replacing any found Pydantic
+    Models with $references to the schema's components section and returning
+    the pydantic models themselves.
 
     Args:
         obj:

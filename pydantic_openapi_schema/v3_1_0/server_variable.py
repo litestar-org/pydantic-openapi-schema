@@ -4,11 +4,14 @@ from pydantic import BaseModel, Extra
 
 
 class ServerVariable(BaseModel):
-    """An object representing a Server Variable for server URL template substitution."""
+    """An object representing a Server Variable for server URL template
+    substitution.
+    """
 
     enum: Optional[List[str]] = None
-    """
-    An enumeration of string values to be used if the substitution options are from a limited set.
+    """An enumeration of string values to be used if the substitution options
+    are from a limited set.
+
     The array SHOULD NOT be empty.
     """
 
@@ -22,9 +25,10 @@ class ServerVariable(BaseModel):
     """
 
     description: Optional[str] = None
-    """
-    An optional description for the server variable.
-    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
+    """An optional description for the server variable.
+
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for
+    rich text representation.
     """
 
     class Config:

@@ -1,9 +1,9 @@
 from typing import Dict, List
 
 SecurityRequirement = Dict[str, List[str]]
-"""
-Lists the required security schemes to execute this operation.
-The name used for each property MUST correspond to a security scheme declared in the
+"""Lists the required security schemes to execute this operation. The name used
+for each property MUST correspond to a security scheme declared in the.
+
 [Security Schemes](https://spec.openapis.org/oas/v3.1.0#componentsSecuritySchemes) under the [Components Object](https://spec.openapis.org/oas/v3.1.0#componentsObject).
 
 Security Requirement Objects that contain multiple schemes require that

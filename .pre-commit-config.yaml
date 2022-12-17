@@ -10,7 +10,7 @@ repos:
         exclude: "\\.idea/(.)*"
       - id: trailing-whitespace
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.3.0
+    rev: v3.3.1
     hooks:
       - id: pyupgrade
         args: ["--py38-plus"]
@@ -20,11 +20,11 @@ repos:
       - id: pycln
         args: [--config=pyproject.toml]
   - repo: https://github.com/pycqa/isort
-    rev: 5.10.1
+    rev: v5.11.3
     hooks:
       - id: isort
   - repo: https://github.com/psf/black
-    rev: 22.10.0
+    rev: 22.12.0
     hooks:
       - id: black
         args: [--config=./pyproject.toml]
@@ -56,17 +56,6 @@ repos:
     hooks:
       - id: markdownlint
         args: [--disable=MD013, --disable=MD033, --disable=MD050]
-  - repo: https://github.com/PyCQA/docformatter
-    rev: v1.5.0
-    hooks:
-      - id: docformatter
-        args:
-          [
-            --in-place,
-            --close-quotes-on-newline,
-            --wrap-descriptions=120,
-            --wrap-summaries=120,
-          ]
   - repo: https://github.com/PyCQA/flake8
     rev: 6.0.0
     hooks:
@@ -99,7 +88,7 @@ repos:
         additional_dependencies:
           - pydocstyle[toml]
   - repo: https://github.com/pycqa/pylint
-    rev: "v2.15.7"
+    rev: "v2.15.9"
     hooks:
       - id: pylint
         exclude: "test_*|docs"

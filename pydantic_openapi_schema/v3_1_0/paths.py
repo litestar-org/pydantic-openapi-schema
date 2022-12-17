@@ -3,9 +3,10 @@ from typing import Dict
 from .path_item import PathItem
 
 Paths = Dict[str, PathItem]
-"""
-Holds the relative paths to the individual endpoints and their operations.
-The path is appended to the URL from the [Server Object](https://spec.openapis.org/oas/v3.1.0#serverObject) in order to construct the full URL.
+"""Holds the relative paths to the individual endpoints and their operations.
+The path is appended to the URL from the.
+
+[Server Object](https://spec.openapis.org/oas/v3.1.0#serverObject) in order to construct the full URL.
 
 The Paths MAY be empty, due to [Access Control List (ACL) constraints](https://spec.openapis.org/oas/v3.1.0#securityFiltering).
 

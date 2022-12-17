@@ -9,8 +9,9 @@ from .xml import XML
 
 
 class Schema(BaseModel):
-    """The Schema Object allows the definition of input and output data types. These types can be objects, but also
-    primitives and arrays. This object is a superset of the [JSON Schema Specification Draft
+    """The Schema Object allows the definition of input and output data types.
+    These types can be objects, but also primitives and arrays. This object is
+    a superset of the [JSON Schema Specification Draft
     2020-12](https://tools.ietf.org/html/draft-bhutton-json-schema-00).
 
     For more information about the properties,
@@ -28,9 +29,8 @@ class Schema(BaseModel):
     """
 
     allOf: Optional[List[Union[Reference, "Schema"]]] = None
-    """
-    This keyword's value MUST be a non-empty array.  Each item of the
-    array MUST be a valid JSON Schema.
+    """This keyword's value MUST be a non-empty array.  Each item of the array
+    MUST be a valid JSON Schema.
 
     An instance validates successfully against this keyword if it
     validates successfully against all schemas defined by this keyword's
@@ -38,21 +38,19 @@ class Schema(BaseModel):
     """
 
     anyOf: Optional[List[Union[Reference, "Schema"]]] = None
-    """
-    This keyword's value MUST be a non-empty array.  Each item of the
-    array MUST be a valid JSON Schema.
+    """This keyword's value MUST be a non-empty array.  Each item of the array
+    MUST be a valid JSON Schema.
 
     An instance validates successfully against this keyword if it
     validates successfully against at least one schema defined by this
-    keyword's value.  Note that when annotations are being collected, all
-    subschemas MUST be examined so that annotations are collected from
-    each subschema that validates successfully.
+    keyword's value.  Note that when annotations are being collected,
+    all subschemas MUST be examined so that annotations are collected
+    from each subschema that validates successfully.
     """
 
     oneOf: Optional[List[Union[Reference, "Schema"]]] = None
-    """
-    This keyword's value MUST be a non-empty array.  Each item of the
-    array MUST be a valid JSON Schema.
+    """This keyword's value MUST be a non-empty array.  Each item of the array
+    MUST be a valid JSON Schema.
 
     An instance validates successfully against this keyword if it
     validates successfully against exactly one schema defined by this
@@ -60,16 +58,14 @@ class Schema(BaseModel):
     """
 
     schema_not: Optional[Union[Reference, "Schema"]] = Field(default=None, alias="not")
-    """
-    This keyword's value MUST be a valid JSON Schema.
+    """This keyword's value MUST be a valid JSON Schema.
 
     An instance is valid against this keyword if it fails to validate
     successfully against the schema defined by this keyword.
     """
 
     schema_if: Optional[Union[Reference, "Schema"]] = Field(default=None, alias="if")
-    """
-    This keyword's value MUST be a valid JSON Schema.
+    """This keyword's value MUST be a valid JSON Schema.
 
     This validation outcome of this keyword's subschema has no direct
     effect on the overall validation result.  Rather, it controls which
@@ -89,8 +85,7 @@ class Schema(BaseModel):
     """
 
     then: Optional[Union[Reference, "Schema"]] = None
-    """
-    This keyword's value MUST be a valid JSON Schema.
+    """This keyword's value MUST be a valid JSON Schema.
 
     When "if" is present, and the instance successfully validates against
     its subschema, then validation succeeds against this keyword if the
@@ -104,8 +99,7 @@ class Schema(BaseModel):
     """
 
     schema_else: Optional[Union[Reference, "Schema"]] = Field(default=None, alias="else")
-    """
-    This keyword's value MUST be a valid JSON Schema.
+    """This keyword's value MUST be a valid JSON Schema.
 
     When "if" is present, and the instance fails to validate against its
     subschema, then validation succeeds against this keyword if the
@@ -118,9 +112,8 @@ class Schema(BaseModel):
     """
 
     dependentSchemas: Optional[Dict[str, Union[Reference, "Schema"]]] = None
-    """
-    This keyword specifies subschemas that are evaluated if the instance
-    is an object and contains a certain property.
+    """This keyword specifies subschemas that are evaluated if the instance is
+    an object and contains a certain property.
 
     This keyword's value MUST be an object.  Each value in the object
     MUST be a valid JSON Schema.
@@ -133,8 +126,7 @@ class Schema(BaseModel):
     """
 
     prefixItems: Optional[List[Union[Reference, "Schema"]]] = None
-    """
-    The value of "prefixItems" MUST be a non-empty array of valid JSON
+    """The value of "prefixItems" MUST be a non-empty array of valid JSON
     Schemas.
 
     Validation succeeds if each element of the instance validates against
@@ -154,8 +146,7 @@ class Schema(BaseModel):
     """
 
     items: Optional[Union[Reference, "Schema"]] = None
-    """
-    The value of "items" MUST be a valid JSON Schema.
+    """The value of "items" MUST be a valid JSON Schema.
 
     This keyword applies its subschema to all instance elements at
     indexes greater than the length of the "prefixItems" array in the
@@ -182,8 +173,7 @@ class Schema(BaseModel):
     """
 
     contains: Optional[Union[Reference, "Schema"]] = None
-    """
-    The value of this keyword MUST be a valid JSON Schema.
+    """The value of this keyword MUST be a valid JSON Schema.
 
     An array instance is valid against "contains" if at least one of its
     elements is valid against the given schema.  The subschema MUST be
@@ -204,9 +194,8 @@ class Schema(BaseModel):
     """
 
     properties: Optional[Dict[str, Union[Reference, "Schema"]]] = None
-    """
-    The value of "properties" MUST be an object.  Each value of this
-    object MUST be a valid JSON Schema.
+    """The value of "properties" MUST be an object.  Each value of this object
+    MUST be a valid JSON Schema.
 
     Validation succeeds if, for each name that appears in both the
     instance and as a name within this keyword's value, the child
@@ -221,11 +210,10 @@ class Schema(BaseModel):
     """
 
     patternProperties: Optional[Dict[str, Union[Reference, "Schema"]]] = None
-    """
-    The value of "patternProperties" MUST be an object.  Each property
-    name of this object SHOULD be a valid regular expression, according
-    to the ECMA-262 regular expression dialect.  Each property value of
-    this object MUST be a valid JSON Schema.
+    """The value of "patternProperties" MUST be an object.  Each property name
+    of this object SHOULD be a valid regular expression, according to the
+    ECMA-262 regular expression dialect.  Each property value of this object
+    MUST be a valid JSON Schema.
 
     Validation succeeds if, for each instance name that matches any
     regular expressions that appear as a property name in this keyword's
@@ -241,8 +229,7 @@ class Schema(BaseModel):
     """
 
     additionalProperties: Optional[Union[Reference, "Schema", bool]] = None
-    """
-    The value of "additionalProperties" MUST be a valid JSON Schema.
+    """The value of "additionalProperties" MUST be a valid JSON Schema.
 
     The behavior of this keyword depends on the presence and annotation
     results of "properties" and "patternProperties" within the same
@@ -267,8 +254,7 @@ class Schema(BaseModel):
     """
 
     propertyNames: Optional[Union[Reference, "Schema"]] = None
-    """
-    The value of "propertyNames" MUST be a valid JSON Schema.
+    """The value of "propertyNames" MUST be a valid JSON Schema.
 
     If the instance is an object, this keyword validates if every
     property name in the instance validates against the provided schema.
@@ -279,8 +265,7 @@ class Schema(BaseModel):
     """
 
     unevaluatedItems: Optional[Union[Reference, "Schema"]] = None
-    """
-    The value of "unevaluatedItems" MUST be a valid JSON Schema.
+    """The value of "unevaluatedItems" MUST be a valid JSON Schema.
 
     The behavior of this keyword depends on the annotation results of
     adjacent keywords that apply to the instance location being
@@ -314,8 +299,7 @@ class Schema(BaseModel):
     """
 
     unevaluatedProperties: Optional[Union[Reference, "Schema"]] = None
-    """
-    The value of "unevaluatedProperties" MUST be a valid JSON Schema.
+    """The value of "unevaluatedProperties" MUST be a valid JSON Schema.
 
     The behavior of this keyword depends on the annotation results of
     adjacent keywords that apply to the instance location being
@@ -354,10 +338,8 @@ class Schema(BaseModel):
     """
 
     type: Optional[Union[str, List[str]]] = None
-    """
-    The value of this keyword MUST be either a string or an array.  If it
-    is an array, elements of the array MUST be strings and MUST be
-    unique.
+    """The value of this keyword MUST be either a string or an array.  If it is
+    an array, elements of the array MUST be strings and MUST be unique.
 
     String values MUST be one of the six primitive types ("null",
     "boolean", "object", "array", "number", or "string"), or "integer"
@@ -368,9 +350,8 @@ class Schema(BaseModel):
     """
 
     enum: Optional[List[Any]] = Field(default=None, min_items=1)
-    """
-    The value of this keyword MUST be an array.  This array SHOULD have
-    at least one element.  Elements in the array SHOULD be unique.
+    """The value of this keyword MUST be an array.  This array SHOULD have at
+    least one element.  Elements in the array SHOULD be unique.
 
     An instance validates successfully against this keyword if its value
     is equal to one of the elements in this keyword's array value.
@@ -379,8 +360,7 @@ class Schema(BaseModel):
     """
 
     const: Optional[Any] = None
-    """
-    The value of this keyword MAY be of any type, including null.
+    """The value of this keyword MAY be of any type, including null.
 
     Use of this keyword is functionally equivalent to an "enum"
     (Section 6.1.2) with a single value.
@@ -390,25 +370,22 @@ class Schema(BaseModel):
     """
 
     multipleOf: Optional[float] = Field(default=None, gt=0.0)
-    """
-    The value of "multipleOf" MUST be a number, strictly greater than 0.
+    """The value of "multipleOf" MUST be a number, strictly greater than 0.
 
     A numeric instance is only valid if division by this keyword's value
     results in an integer.
     """
 
     maximum: Optional[float] = None
-    """
-    The value of "maximum" MUST be a number, representing an inclusive
-    upper limit for a numeric instance.
+    """The value of "maximum" MUST be a number, representing an inclusive upper
+    limit for a numeric instance.
 
     If the instance is a number, then this keyword validates only if the
     instance is less than or exactly equal to "maximum".
     """
 
     exclusiveMaximum: Optional[float] = None
-    """
-    The value of "exclusiveMaximum" MUST be a number, representing an
+    """The value of "exclusiveMaximum" MUST be a number, representing an
     exclusive upper limit for a numeric instance.
 
     If the instance is a number, then the instance is valid only if it
@@ -416,17 +393,15 @@ class Schema(BaseModel):
     """
 
     minimum: Optional[float] = None
-    """
-    The value of "minimum" MUST be a number, representing an inclusive
-    lower limit for a numeric instance.
+    """The value of "minimum" MUST be a number, representing an inclusive lower
+    limit for a numeric instance.
 
     If the instance is a number, then this keyword validates only if the
     instance is greater than or exactly equal to "minimum".
     """
 
     exclusiveMinimum: Optional[float] = None
-    """
-    The value of "exclusiveMinimum" MUST be a number, representing an
+    """The value of "exclusiveMinimum" MUST be a number, representing an
     exclusive lower limit for a numeric instance.
 
     If the instance is a number, then the instance is valid only if it
@@ -434,8 +409,7 @@ class Schema(BaseModel):
     """
 
     maxLength: Optional[int] = Field(default=None, ge=0)
-    """
-    The value of this keyword MUST be a non-negative integer.
+    """The value of this keyword MUST be a non-negative integer.
 
     A string instance is valid against this keyword if its length is less
     than, or equal to, the value of this keyword.
@@ -445,8 +419,7 @@ class Schema(BaseModel):
     """
 
     minLength: Optional[int] = Field(default=None, ge=0)
-    """
-    The value of this keyword MUST be a non-negative integer.
+    """The value of this keyword MUST be a non-negative integer.
 
     A string instance is valid against this keyword if its length is
     greater than, or equal to, the value of this keyword.
@@ -458,10 +431,9 @@ class Schema(BaseModel):
     """
 
     pattern: Optional[str] = None
-    """
-    The value of this keyword MUST be a string.  This string SHOULD be a
-    valid regular expression, according to the ECMA-262 regular
-    expression dialect.
+    """The value of this keyword MUST be a string.  This string SHOULD be a
+    valid regular expression, according to the ECMA-262 regular expression
+    dialect.
 
     A string instance is considered valid if the regular expression
     matches the instance successfully.  Recall: regular expressions are
@@ -469,16 +441,14 @@ class Schema(BaseModel):
     """
 
     maxItems: Optional[int] = Field(default=None, ge=0)
-    """
-    The value of this keyword MUST be a non-negative integer.
+    """The value of this keyword MUST be a non-negative integer.
 
     An array instance is valid against "maxItems" if its size is less
     than, or equal to, the value of this keyword.
     """
 
     minItems: Optional[int] = Field(default=None, ge=0)
-    """
-    The value of this keyword MUST be a non-negative integer.
+    """The value of this keyword MUST be a non-negative integer.
 
     An array instance is valid against "minItems" if its size is greater
     than, or equal to, the value of this keyword.
@@ -487,8 +457,7 @@ class Schema(BaseModel):
     """
 
     uniqueItems: Optional[bool] = None
-    """
-    The value of this keyword MUST be a boolean.
+    """The value of this keyword MUST be a boolean.
 
     If this keyword has boolean value false, the instance validates
     successfully.  If it has boolean value true, the instance validates
@@ -498,8 +467,7 @@ class Schema(BaseModel):
     """
 
     maxContains: Optional[int] = Field(default=None, ge=0)
-    """
-    The value of this keyword MUST be a non-negative integer.
+    """The value of this keyword MUST be a non-negative integer.
 
     If "contains" is not present within the same schema object, then this
     keyword has no effect.
@@ -514,8 +482,7 @@ class Schema(BaseModel):
     """
 
     minContains: Optional[int] = Field(default=None, ge=0)
-    """
-    The value of this keyword MUST be a non-negative integer.
+    """The value of this keyword MUST be a non-negative integer.
 
     If "contains" is not present within the same schema object, then this
     keyword has no effect.
@@ -536,16 +503,14 @@ class Schema(BaseModel):
     """
 
     maxProperties: Optional[int] = Field(default=None, ge=0)
-    """
-    The value of this keyword MUST be a non-negative integer.
+    """The value of this keyword MUST be a non-negative integer.
 
     An object instance is valid against "maxProperties" if its number of
     properties is less than, or equal to, the value of this keyword.
     """
 
     minProperties: Optional[int] = Field(default=None, ge=0)
-    """
-    The value of this keyword MUST be a non-negative integer.
+    """The value of this keyword MUST be a non-negative integer.
 
     An object instance is valid against "minProperties" if its number of
     properties is greater than, or equal to, the value of this keyword.
@@ -554,9 +519,8 @@ class Schema(BaseModel):
     """
 
     required: Optional[List[str]] = None
-    """
-    The value of this keyword MUST be an array.  Elements of this array,
-    if any, MUST be strings, and MUST be unique.
+    """The value of this keyword MUST be an array.  Elements of this array, if
+    any, MUST be strings, and MUST be unique.
 
     An object instance is valid against this keyword if every item in the
     array is the name of a property in the instance.
@@ -565,10 +529,9 @@ class Schema(BaseModel):
     """
 
     dependentRequired: Optional[Dict[str, List[str]]] = None
-    """
-    The value of this keyword MUST be an object.  Properties in this
-    object, if any, MUST be arrays.  Elements in each array, if any, MUST
-    be strings, and MUST be unique.
+    """The value of this keyword MUST be an object.  Properties in this object,
+    if any, MUST be arrays.  Elements in each array, if any, MUST be strings,
+    and MUST be unique.
 
     This keyword specifies properties that are required if a specific
     other property is present.  Their requirement is dependent on the
@@ -582,10 +545,10 @@ class Schema(BaseModel):
     """
 
     schema_format: Optional[str] = Field(default=None, alias="format")
-    """
-    From OpenAPI:
-    See [Data Type Formats<https://spec.openapis.org/oas/v3.1.0#dataTypeFormat) for further details.
-    While relying on JSON Schema's defined formats, the OAS offers a few additional predefined formats.
+    """From OpenAPI: See [Data Type
+    Formats<https://spec.openapis.org/oas/v3.1.0#dataTypeFormat) for further
+    details. While relying on JSON Schema's defined formats, the OAS offers a
+    few additional predefined formats.
 
     From JSON Schema:
     Structural validation alone may be insufficient to allow an
@@ -613,10 +576,9 @@ class Schema(BaseModel):
     """
 
     contentEncoding: Optional[str] = None
-    """
-    If the instance value is a string, this property defines that the
-    string SHOULD be interpreted as binary data and decoded using the
-    encoding named by this property.
+    """If the instance value is a string, this property defines that the string
+    SHOULD be interpreted as binary data and decoded using the encoding named
+    by this property.
 
     Possible values indicating base 16, 32, and 64 encodings with several
     variations are listed in RFC 4648 [RFC4648].  Additionally, sections
@@ -635,20 +597,17 @@ class Schema(BaseModel):
     """
 
     contentMediaType: Optional[str] = None
-    """
-    If the instance is a string, this property indicates the media type
-    of the contents of the string.  If "contentEncoding" is present, this
-    property describes the decoded string.
+    """If the instance is a string, this property indicates the media type of
+    the contents of the string.  If "contentEncoding" is present, this property
+    describes the decoded string.
 
     The value of this property MUST be a string, which MUST be a media
     type, as defined by RFC 2046 [RFC2046].
     """
 
     contentSchema: Optional[Union[Reference, "Schema"]] = None
-    """
-    If the instance is a string, and if "contentMediaType" is present,
-    this property contains a schema which describes the structure of the
-    string.
+    """If the instance is a string, and if "contentMediaType" is present, this
+    property contains a schema which describes the structure of the string.
 
     This keyword MAY be used with any media type that can be mapped into
     JSON Schema's data model.
@@ -658,17 +617,16 @@ class Schema(BaseModel):
     """
 
     title: Optional[str] = None
-    """
-    The value of "title" MUST be a string.
+    """The value of "title" MUST be a string.
 
-    The title can be used to decorate a user interface with
-    information about the data produced by this user interface.
-    A title will preferably be short.
+    The title can be used to decorate a user interface with information
+    about the data produced by this user interface. A title will
+    preferably be short.
     """
 
     description: Optional[str] = None
-    """
-    From OpenAPI:
+    """From OpenAPI:
+
     [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
 
     From JSON Schema:
@@ -681,8 +639,7 @@ class Schema(BaseModel):
     """
 
     default: Optional[Any] = None
-    """
-    There are no restrictions placed on the value of this keyword.  When
+    """There are no restrictions placed on the value of this keyword.  When
     multiple occurrences of this keyword are applicable to a single sub-
     instance, implementations SHOULD remove duplicates.
 
@@ -692,11 +649,10 @@ class Schema(BaseModel):
     """
 
     deprecated: Optional[bool] = None
-    """
-    The value of this keyword MUST be a boolean.  When multiple
-    occurrences of this keyword are applicable to a single sub-instance,
-    applications SHOULD consider the instance location to be deprecated
-    if any occurrence specifies a true value.
+    """The value of this keyword MUST be a boolean.  When multiple occurrences
+    of this keyword are applicable to a single sub-instance, applications
+    SHOULD consider the instance location to be deprecated if any occurrence
+    specifies a true value.
 
     If "deprecated" has a value of boolean true, it indicates that
     applications SHOULD refrain from usage of the declared property.  It
@@ -715,12 +671,10 @@ class Schema(BaseModel):
     """
 
     readOnly: Optional[bool] = None
-    """
-    The value of "readOnly" MUST be a boolean.  When multiple
-    occurrences of this keyword are applicable to a single sub-instance,
-    the resulting behavior SHOULD be as for a true value if any
-    occurrence specifies a true value, and SHOULD be as for a false value
-    otherwise.
+    """The value of "readOnly" MUST be a boolean.  When multiple occurrences of
+    this keyword are applicable to a single sub-instance, the resulting
+    behavior SHOULD be as for a true value if any occurrence specifies a true
+    value, and SHOULD be as for a false value otherwise.
 
     If "readOnly" has a value of boolean true, it indicates that the
     value of the instance is managed exclusively by the owning authority,
@@ -743,12 +697,10 @@ class Schema(BaseModel):
     """
 
     writeOnly: Optional[bool] = None
-    """
-    The value of "writeOnly" MUST be a boolean.  When multiple
-    occurrences of this keyword are applicable to a single sub-instance,
-    the resulting behavior SHOULD be as for a true value if any
-    occurrence specifies a true value, and SHOULD be as for a false value
-    otherwise.
+    """The value of "writeOnly" MUST be a boolean.  When multiple occurrences
+    of this keyword are applicable to a single sub-instance, the resulting
+    behavior SHOULD be as for a true value if any occurrence specifies a true
+    value, and SHOULD be as for a false value otherwise.
 
     If "writeOnly" has a value of boolean true, it indicates that the
     value is never present when the instance is retrieved from the owning
@@ -774,12 +726,10 @@ class Schema(BaseModel):
     """
 
     examples: Optional[List[Any]] = None
-    """
-    The value of this keyword MUST be an array.  There are no
-    restrictions placed on the values within the array.  When multiple
-    occurrences of this keyword are applicable to a single sub-instance,
-    implementations MUST provide a flat array of all values rather than
-    an array of arrays.
+    """The value of this keyword MUST be an array.  There are no restrictions
+    placed on the values within the array. When multiple occurrences of this
+    keyword are applicable to a single sub-instance, implementations MUST
+    provide a flat array of all values rather than an array of arrays.
 
     This keyword can be used to provide sample JSON values associated
     with a particular schema, for the purpose of illustrating usage.  It
@@ -794,30 +744,28 @@ class Schema(BaseModel):
     """
 
     discriminator: Optional[Discriminator] = None
-    """
-    Adds support for polymorphism.
+    """Adds support for polymorphism.
+
     The discriminator is an object name that is used to differentiate between other schemas
     which may satisfy the payload description.
     See [Composition and Inheritance](https://spec.openapis.org/oas/v3.1.0#schemaComposition) for more details.
     """
 
     xml: Optional[XML] = None
-    """
-    This MAY be used only on properties schemas.
-    It has no effect on root schemas.
-    Adds additional metadata to describe the XML representation of this property.
+    """This MAY be used only on properties schemas.
+
+    It has no effect on root schemas. Adds additional metadata to
+    describe the XML representation of this property.
     """
 
     externalDocs: Optional[ExternalDocumentation] = None
-    """
-    Additional external documentation for this schema.
-    """
+    """Additional external documentation for this schema."""
 
     example: Optional[Any] = None
-    """
-    A free-form property to include an example of an instance for this schema.
-    To represent examples that cannot be naturally represented in JSON or YAML,
-    a string value can be used to contain the example with escaping where necessary.
+    """A free-form property to include an example of an instance for this
+    schema. To represent examples that cannot be naturally represented in JSON
+    or YAML, a string value can be used to contain the example with escaping
+    where necessary.
 
     Deprecated: The example property has been deprecated in favor of the JSON Schema examples keyword.
     Use of example is discouraged, and later versions of this specification may remove it.

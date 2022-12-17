@@ -9,7 +9,8 @@ class Tag(BaseModel):
     """Adds metadata to a single tag that is used by the [Operation
     Object](https://spec.openapis.org/oas/v3.1.0#operationObject).
 
-    It is not mandatory to have a Tag Object per tag defined in the Operation Object instances.
+    It is not mandatory to have a Tag Object per tag defined in the
+    Operation Object instances.
     """
 
     name: str
@@ -18,15 +19,14 @@ class Tag(BaseModel):
     """
 
     description: Optional[str] = None
-    """
-    A short description for the tag.
-    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
+    """A short description for the tag.
+
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for
+    rich text representation.
     """
 
     externalDocs: Optional[ExternalDocumentation] = None
-    """
-    Additional external documentation for this tag.
-    """
+    """Additional external documentation for this tag."""
 
     class Config:
         extra = Extra.ignore

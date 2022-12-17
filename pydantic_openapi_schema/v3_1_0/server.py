@@ -18,14 +18,14 @@ class Server(BaseModel):
     """
 
     description: Optional[str] = None
-    """
-    An optional string describing the host designated by the URL.
-    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for rich text representation.
+    """An optional string describing the host designated by the URL.
+
+    [CommonMark syntax](https://spec.commonmark.org/) MAY be used for
+    rich text representation.
     """
 
     variables: Optional[Dict[str, ServerVariable]] = None
-    """
-    A map between a variable name and its value.
+    """A map between a variable name and its value.
 
     The value is used for substitution in the server's URL template.
     """

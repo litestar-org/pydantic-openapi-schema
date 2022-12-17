@@ -23,10 +23,10 @@ class OAuthFlow(BaseModel):
     """
 
     refreshUrl: Optional[Union[AnyUrl, str]] = None
-    """
-    The URL to be used for obtaining refresh tokens.
-    This MUST be in the form of a URL.
-    The OAuth2 standard requires the use of TLS.
+    """The URL to be used for obtaining refresh tokens.
+
+    This MUST be in the form of a URL. The OAuth2 standard requires the
+    use of TLS.
     """
 
     scopes: Optional[Dict[str, str]] = None

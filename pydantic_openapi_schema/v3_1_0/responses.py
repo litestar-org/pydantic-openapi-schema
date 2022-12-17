@@ -4,9 +4,8 @@ from .reference import Reference
 from .response import Response
 
 Responses = Dict[str, Union[Response, Reference]]
-"""
-A container for the expected responses of an operation.
-The container maps a HTTP response code to the expected response.
+"""A container for the expected responses of an operation. The container maps a
+HTTP response code to the expected response.
 
 The documentation is not necessarily expected to cover all possible HTTP response codes
 because they may not be known in advance.

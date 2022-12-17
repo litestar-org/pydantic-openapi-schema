@@ -1,12 +1,20 @@
 # Changelog
 
+[v1.5.0]
+
+- add support for constructing schema `by_alias`.
+
+[v1.4.0]
+
+- add support for `GenericModel`.
+
 [v1.3.0]
 
-- add support for `__schema_name__` dunder attribute on pydantic models
+- add support for `__schema_name__` dunder attribute on pydantic models.
 
 [v1.2.0]
 
-- update to pydantic `v1.1.0`
+- update to pydantic `v1.1.0`.
 
 [v1.1.0]
 

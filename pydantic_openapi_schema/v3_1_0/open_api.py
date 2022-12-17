@@ -30,27 +30,29 @@ class OpenAPI(BaseModel):
     """
 
     jsonSchemaDialect: Optional[str] = None
-    """
-    The default value for the `$schema` keyword within [Schema Objects](https://spec.openapis.org/oas/v3.1.0#schemaObject)
-    contained within this OAS document. This MUST be in the form of a URI.
+    """The default value for the `$schema` keyword within [Schema
+    Objects](https://spec.openapis.org/oas/v3.1.0#schemaObject) contained
+    within this OAS document.
+
+    This MUST be in the form of a URI.
     """
 
     servers: List[Server] = [Server(url="/")]
-    """
-    An array of Server Objects, which provide connectivity information to a target server.
+    """An array of Server Objects, which provide connectivity information to a
+    target server.
+
     If the `servers` property is not provided, or is an empty array,
     the default value would be a [Server Object](https://spec.openapis.org/oas/v3.1.0#serverObject)
     with a [url](https://spec.openapis.org/oas/v3.1.0#serverUrl) value of `/`.
     """
 
     paths: Optional[Paths] = None
-    """
-    The available paths and operations for the API.
-    """
+    """The available paths and operations for the API."""
 
     webhooks: Optional[Dict[str, Union[PathItem, Reference]]] = None
-    """
-    The incoming webhooks that MAY be received as part of this API and that the API consumer MAY choose to implement.
+    """The incoming webhooks that MAY be received as part of this API and that
+    the API consumer MAY choose to implement.
+
     Closely related to the `callbacks` feature, this section describes requests initiated other than by an API call,
     for example by an out of band registration.
     The key name is a unique string to refer to each webhook,
@@ -60,22 +62,21 @@ class OpenAPI(BaseModel):
     """
 
     components: Optional[Components] = None
-    """
-    An element to hold various schemas for the document.
-    """
+    """An element to hold various schemas for the document."""
 
     security: Optional[List[SecurityRequirement]] = None
-    """
-    A declaration of which security mechanisms can be used across the API.
-    The list of values includes alternative security requirement objects that can be used.
-    Only one of the security requirement objects need to be satisfied to authorize a request.
-    Individual operations can override this definition.
-    To make security optional, an empty security requirement (`{}`) can be included in the array.
+    """A declaration of which security mechanisms can be used across the API.
+
+    The list of values includes alternative security requirement objects
+    that can be used. Only one of the security requirement objects need
+    to be satisfied to authorize a request. Individual operations can
+    override this definition. To make security optional, an empty
+    security requirement (`{}`) can be included in the array.
     """
 
     tags: Optional[List[Tag]] = None
-    """
-    A list of tags used by the document with additional metadata.
+    """A list of tags used by the document with additional metadata.
+
     The order of the tags can be used to reflect on their order by the parsing tools.
     Not all tags that are used by the [Operation Object](https://spec.openapis.org/oas/v3.1.0#operationObject) must be declared.
     The tags that are not declared MAY be organized randomly or based on the tools' logic.
@@ -83,9 +84,7 @@ class OpenAPI(BaseModel):
     """
 
     externalDocs: Optional[ExternalDocumentation] = None
-    """
-    Additional external documentation.
-    """
+    """Additional external documentation."""
 
     class Config:
         extra = Extra.ignore
